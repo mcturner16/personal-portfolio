@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>First Chart</title>
+
+  <!-- Vega-Lite runtime. These three versions work together; the companion
+       Colab pins a matching Altair version so the spec you paste in below renders. -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@7"></script>
+
+  <!-- Intentionally minimal styling. Restyle it freely. -->
+  <style>
+    body { font-family: system-ui, -apple-system, sans-serif; line-height: 1.55;
+           max-width: 760px; margin: 2rem auto; padding: 0 1rem; color: #1a1a1a; }
+    h1, h2 { line-height: 1.2; }
+    figure { margin: 2.5rem 0; }
+    .chart { margin: 0.5rem 0; }
+    .writeup { color: #333; }
+  </style>
+</head>
+<body>
+
+  <h1>My First Chart</h1>
+
+  <!-- ============ CHART (worked example) ============ -->
+  <figure>
+    <div id="chart1" class="chart"></div>
+    <figcaption class="writeup">
+      Write something about your chart.
+    </figcaption>
+  </figure>
+
+
+  <script>
+    // Paste the output of Altair's  print(chart.to_json())  as each spec.
+    // big blob of stuff goes here (replace the 3 dots)!! Without this, page won't load.
+    const spec1 = ... ;
+    vegaEmbed("#chart1", spec1, { actions: true });
+
+    // Then you can just add some more charts below.
+    // Above you can add the div ids pointing to chart2, chart3, chart 4
+    // const spec2 = ... ;  vegaEmbed("#chart2", spec2, { actions: true });
+    // const spec3 = ... ;  vegaEmbed("#chart3", spec3, { actions: true });
+    // const spec4 = ... ;  vegaEmbed("#chart4", spec4, { actions: true });
+  </script>
+
+</body>
+</html>
