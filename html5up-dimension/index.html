@@ -33,7 +33,8 @@
 						<nav>
 							<ul>
 								<li><a href="#intro">Intro</a></li>
-								<li><a href="#work">Work</a></li>
+								<li><a href="#variations">Part 1 - Variations of Graphs</a></li>
+								<li><a href="#fixing">Part 2 - Fixing Visualizations</a></li>
 								<li><a href="#about">About</a></li>
 								<li><a href="#contact">Contact</a></li>
 								<!--<li><a href="#elements">Elements</a></li>-->
@@ -48,25 +49,40 @@
 							<article id="intro">
 								<h2 class="major">Intro</h2>
 								<span class="image main"><img src="images/pic01.jpg" alt="" /></span>
-								<p>Welcome to my Online Portfolio, courtesy of the <a href="https://www.html5up.net/dimension">Dimension Template found on html5up.net.</a> Initially created for the Fall 2026 DSC-402/502 Class at the University of Michigan-Flint, known as Data Visualization for Exploratory Data Analysis. By the way, check out my <a href="#work">awesome work</a>.</p>
+								<p>Welcome to my Online Portfolio, courtesy of the <a href="https://www.html5up.net/dimension">Dimension Template found on html5up.net.</a> Initially created for the Fall 2026 DSC-402/502 Class at the University of Michigan-Flint, known as Data Visualization for Exploratory Data Analysis. By the way, check out my <a href="#variations">awesome work</a>.</p>
 							</article>
 
-						<!-- Work -->
-							<article id="work">
-								<h2 class="major">Work</h2>
+						<!-- Variations -->
+							<article id="variations">
+								<h2>Part 1 - Variations of the same Graph</h3>
 								<span class="image main"><img src="images/pic02.jpg" alt="" /></span>
 								<p>Here I have a collection of my data analytics work which I will build and continue to add on to this Portfolio. Starting with some simple Vega-Lite practice.</p>
-								<div id="vis-work-1" style="width: 100%; margin: 2rem 0;"></div>
+								<div id="vis-variations-1" style="width: 100%; margin: 2rem 0;"></div>
 								<p>This first chart takes a <a href="https://www.kaggle.com/datasets/sibamsamanta07/movies-dataset-45k-films-with-budget-and-revenue">Movies Dataset</a> from the Kaggle User SibamSamanta07 which contains metadata about 45,466 Movies. This chart looks at the median revenue in USD for each genre of Movies.</p>
-								<div id="vis-work-2" style="width: 100%; margin: 2rem 0;"></div>
+								<div id="vis-variations-2" style="width: 100%; margin: 2rem 0;"></div>
 								<p>This second chart looks at the average revenue for each genre instead of the median. You can see how the rankings and the x-axis shifts.</p>
       							<p>For example, the median revenue for a Horror Movie in this dataset is $25,519,166, ranking 11th out of 20 Genres. Whereas the average revenue for a Horror Movie is more than double the median, at $53,896,875. However, this ranks only 16th out of the 20 Genres. Meanwhile the X-Axis roughly doubles in range compared to the first graph, but looks visually similar to the naked eye.</p>
-								<div id="vis-work-3" style="width: 100%; margin: 2rem 0;"></div>
+								<div id="vis-variations-3" style="width: 100%; margin: 2rem 0;"></div>
 								<p>For the third chart, I decided to go back to the median but instead find the median "profit", defined as revenue minus budget.</p>
       							<p>You can see that Animation movies go from 6th in median and average revenue to 1st in median profit. Family movies go from 4th in median revenue and 5th in average revenue to 2nd in median profit. This is because of far lower budgets on average and median than the genres ranked above them in revenue - Adventure, Fantasy, Action and Science Fiction. Interestingly, Foreign and Western Movies dipped into negative median profit.</p>
-								<div id="vis-work-4" style="width: 100%; margin: 2rem 0;"></div>
+								<div id="vis-variations-4" style="width: 100%; margin: 2rem 0;"></div>
 								<p>For the fourth chart, I naturally decided to look at the average profit.</p>
       							<p>The Adventure Genre reclaimed its spot as having the highest average profit, with Fantasy 2nd. Family and Animation dropped to 3rd and 4th, respectively. This is likely due to major blockbuster movies creating a sort of boom or bust dynamic. With the major hits dragging the average up, but the median staying lower due to less successful movies. The Adventure Genre's median profit is $54,269,486 and the average profit is $127,826,344.</p>
+								<p>Click this link to see Part 2 of my <a href=#fixing>awesome work.</a></p>
+							</article>
+						
+						<!-- Fixing -->
+
+							<article id="fixing">
+								<h2>Part 2 - Fixing a bad Visualization</h2>
+								<span class="image main"><img src="images/stl_fed_military_spending.png" alt="" /></span>
+								<p>Here we see a very misleading visualization published by the St. Louis Fed with the data sourced from the <a href="https://www.sipri.org/databases/milex">SIPRI Military Expenditure Database.</a></p>
+								<p>This post was made on January 22, 2023, showing the Top 6 Countries in the world by Military Spending. With the United States' budget being shown on the right Y-Axis, and the budgets of China, Russia, the United Kingdom, India and Saudi Arabia being shown on the left Y-Axis. This was obviously created as a scare tactic to make people look at it and think that China had surpassed the United States in Military Spending, when this is clearly not the case if you read closely.</p>
+								<div id="vis-fixing-1" style="width: 100%; margin: 2rem 0;"></div>
+								<p>With the data source taken directly from the SIPRI Database, I decided to update this graph to 2025, using 2024 constant dollars instead of 2020 constant. And I decided to stretch the timespan from 1990 to 2025. And as a result, with a single Y-Axis, the United States' Military Budget is shown to be far higher than 2nd Place China in reality to the naked eye. However, it does leave the other smaller countries at the bottom looking a bit cluttered.</p>
+								<p>Initially I decided to take the Top 10 Countries and aggregate the rest of the world into another category. However, I ultimately decided against this because having 10 lines made the bottom feel too cluttered, and the "Rest of World" Category would have itself been highly misleading because the dataset contained many null values that I had no way of knowing, and thus set to 0. For example - Do you really think that North Korea has a Military Budget of $0 in the year 2025? According to this graph, it would have, even if the underlying data was under the hood.</p>
+								<div id="vis-fixing-2" style="width: 100%; margin: 2rem 0;"></div>
+								<p>In order to better represent the differences in Military Spending of the other countries in the Top 6 without having two confusing Y-Axes, I decided to create a second graph excluding the United States itself, so that the Y-Axis can be shrunk down significantly.</p>
 							</article>
 
 						<!-- About -->
@@ -656,7 +672,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 					}
 				]
 				};
-				vegaEmbed('#vis-work-1', spec1, { "actions": true }).catch(console.error);
+				vegaEmbed('#vis-variations-1', spec1, { "actions": true }).catch(console.error);
 				const spec2 = {
 				"$schema": "https://vega.github.io/schema/vega/v6.json",
 				"background": "white",
@@ -996,7 +1012,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 					}
 				]
 				};
-				vegaEmbed('#vis-work-2', spec2, { "actions": true }).catch(console.error);
+				vegaEmbed('#vis-variations-2', spec2, { "actions": true }).catch(console.error);
 				const spec3 = {
 				"$schema": "https://vega.github.io/schema/vega/v6.json",
 				"background": "white",
@@ -1380,7 +1396,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 					}
 				]
 				};
-				vegaEmbed('#vis-work-3', spec3, { "actions": true }).catch(console.error);
+				vegaEmbed('#vis-variations-3', spec3, { "actions": true }).catch(console.error);
 				const spec4 = {
 				"$schema": "https://vega.github.io/schema/vega/v6.json",
 				"background": "white",
@@ -1764,9 +1780,2540 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 					}
 				]
 				};
-				vegaEmbed('#vis-work-4', spec4, { "actions": true }).catch(console.error);
+				vegaEmbed('#vis-variations-4', spec4, { "actions": true }).catch(console.error);
+				const spec5 = {
+					"$schema": "https://vega.github.io/schema/vega/v6.json",
+					"background": "white",
+					"padding": 5,
+					"width": 500,
+					"height": 360,
+					"title": {
+						"text": "Military Spending Over Time (1990-2025) (Constant 2024 $Millions USD)",
+						"frame": "group"
+					},
+					"style": "cell",
+					"data": [
+						{"name": "param_1e9efca18e7a2868_store"},
+						{
+						"name": "data-afdaff8dc7290c88af464938658a86b4",
+						"values": [
+							{
+							"Country": "United States of America",
+							"Year": "1990-01-01T00:00:00",
+							"Military_Spending": 780581.1
+							},
+							{
+							"Country": "China",
+							"Year": "1990-01-01T00:00:00",
+							"Military_Spending": 21639.6
+							},
+							{
+							"Country": "Russia",
+							"Year": "1990-01-01T00:00:00",
+							"Military_Spending": 0
+							},
+							{
+							"Country": "Germany",
+							"Year": "1990-01-01T00:00:00",
+							"Military_Spending": 70619.4
+							},
+							{
+							"Country": "India",
+							"Year": "1990-01-01T00:00:00",
+							"Military_Spending": 21862.1
+							},
+							{
+							"Country": "United Kingdom",
+							"Year": "1990-01-01T00:00:00",
+							"Military_Spending": 75189.1
+							},
+							{
+							"Country": "United States of America",
+							"Year": "1991-01-01T00:00:00",
+							"Military_Spending": 689542.1
+							},
+							{
+							"Country": "China",
+							"Year": "1991-01-01T00:00:00",
+							"Military_Spending": 23000.9
+							},
+							{
+							"Country": "Russia",
+							"Year": "1991-01-01T00:00:00",
+							"Military_Spending": 0
+							},
+							{
+							"Country": "Germany",
+							"Year": "1991-01-01T00:00:00",
+							"Military_Spending": 65354.3
+							},
+							{
+							"Country": "India",
+							"Year": "1991-01-01T00:00:00",
+							"Military_Spending": 20413
+							},
+							{
+							"Country": "United Kingdom",
+							"Year": "1991-01-01T00:00:00",
+							"Military_Spending": 76057.6
+							},
+							{
+							"Country": "United States of America",
+							"Year": "1992-01-01T00:00:00",
+							"Military_Spending": 726638
+							},
+							{
+							"Country": "China",
+							"Year": "1992-01-01T00:00:00",
+							"Military_Spending": 27972.1
+							},
+							{
+							"Country": "Russia",
+							"Year": "1992-01-01T00:00:00",
+							"Military_Spending": 47459.5
+							},
+							{
+							"Country": "Germany",
+							"Year": "1992-01-01T00:00:00",
+							"Military_Spending": 62155.6
+							},
+							{
+							"Country": "India",
+							"Year": "1992-01-01T00:00:00",
+							"Military_Spending": 19508.9
+							},
+							{
+							"Country": "United Kingdom",
+							"Year": "1992-01-01T00:00:00",
+							"Military_Spending": 71040
+							},
+							{
+							"Country": "United States of America",
+							"Year": "1993-01-01T00:00:00",
+							"Military_Spending": 687750.9
+							},
+							{
+							"Country": "China",
+							"Year": "1993-01-01T00:00:00",
+							"Military_Spending": 25722.8
+							},
+							{
+							"Country": "Russia",
+							"Year": "1993-01-01T00:00:00",
+							"Military_Spending": 41488
+							},
+							{
+							"Country": "Germany",
+							"Year": "1993-01-01T00:00:00",
+							"Military_Spending": 55876.7
+							},
+							{
+							"Country": "India",
+							"Year": "1993-01-01T00:00:00",
+							"Military_Spending": 22034.4
+							},
+							{
+							"Country": "United Kingdom",
+							"Year": "1993-01-01T00:00:00",
+							"Military_Spending": 67795.1
+							},
+							{
+							"Country": "United States of America",
+							"Year": "1994-01-01T00:00:00",
+							"Military_Spending": 651999
+							},
+							{
+							"Country": "China",
+							"Year": "1994-01-01T00:00:00",
+							"Military_Spending": 24750.4
+							},
+							{
+							"Country": "Russia",
+							"Year": "1994-01-01T00:00:00",
+							"Military_Spending": 39220.3
+							},
+							{
+							"Country": "Germany",
+							"Year": "1994-01-01T00:00:00",
+							"Military_Spending": 52110.8
+							},
+							{
+							"Country": "India",
+							"Year": "1994-01-01T00:00:00",
+							"Military_Spending": 22132.8
+							},
+							{
+							"Country": "United Kingdom",
+							"Year": "1994-01-01T00:00:00",
+							"Military_Spending": 65929.8
+							},
+							{
+							"Country": "United States of America",
+							"Year": "1995-01-01T00:00:00",
+							"Military_Spending": 609028.6
+							},
+							{
+							"Country": "China",
+							"Year": "1995-01-01T00:00:00",
+							"Military_Spending": 25707.1
+							},
+							{
+							"Country": "Russia",
+							"Year": "1995-01-01T00:00:00",
+							"Military_Spending": 25805.4
+							},
+							{
+							"Country": "Germany",
+							"Year": "1995-01-01T00:00:00",
+							"Military_Spending": 51253.3
+							},
+							{
+							"Country": "India",
+							"Year": "1995-01-01T00:00:00",
+							"Military_Spending": 22796.2
+							},
+							{
+							"Country": "United Kingdom",
+							"Year": "1995-01-01T00:00:00",
+							"Military_Spending": 61838.1
+							},
+							{
+							"Country": "United States of America",
+							"Year": "1996-01-01T00:00:00",
+							"Military_Spending": 575900.8
+							},
+							{
+							"Country": "China",
+							"Year": "1996-01-01T00:00:00",
+							"Military_Spending": 27234.5
+							},
+							{
+							"Country": "Russia",
+							"Year": "1996-01-01T00:00:00",
+							"Military_Spending": 24366.3
+							},
+							{
+							"Country": "Germany",
+							"Year": "1996-01-01T00:00:00",
+							"Military_Spending": 50251.2
+							},
+							{
+							"Country": "India",
+							"Year": "1996-01-01T00:00:00",
+							"Military_Spending": 23209.5
+							},
+							{
+							"Country": "United Kingdom",
+							"Year": "1996-01-01T00:00:00",
+							"Military_Spending": 61246.9
+							},
+							{
+							"Country": "United States of America",
+							"Year": "1997-01-01T00:00:00",
+							"Military_Spending": 572921.6
+							},
+							{
+							"Country": "China",
+							"Year": "1997-01-01T00:00:00",
+							"Military_Spending": 29054.2
+							},
+							{
+							"Country": "Russia",
+							"Year": "1997-01-01T00:00:00",
+							"Military_Spending": 26639
+							},
+							{
+							"Country": "Germany",
+							"Year": "1997-01-01T00:00:00",
+							"Military_Spending": 48396.3
+							},
+							{
+							"Country": "India",
+							"Year": "1997-01-01T00:00:00",
+							"Military_Spending": 25692.2
+							},
+							{
+							"Country": "United Kingdom",
+							"Year": "1997-01-01T00:00:00",
+							"Military_Spending": 59071.9
+							},
+							{
+							"Country": "United States of America",
+							"Year": "1998-01-01T00:00:00",
+							"Military_Spending": 559984.9
+							},
+							{
+							"Country": "China",
+							"Year": "1998-01-01T00:00:00",
+							"Military_Spending": 31723.6
+							},
+							{
+							"Country": "Russia",
+							"Year": "1998-01-01T00:00:00",
+							"Military_Spending": 15842
+							},
+							{
+							"Country": "Germany",
+							"Year": "1998-01-01T00:00:00",
+							"Military_Spending": 48563.4
+							},
+							{
+							"Country": "India",
+							"Year": "1998-01-01T00:00:00",
+							"Military_Spending": 26805.4
+							},
+							{
+							"Country": "United Kingdom",
+							"Year": "1998-01-01T00:00:00",
+							"Military_Spending": 59264.9
+							},
+							{
+							"Country": "United States of America",
+							"Year": "1999-01-01T00:00:00",
+							"Military_Spending": 561363
+							},
+							{
+							"Country": "China",
+							"Year": "1999-01-01T00:00:00",
+							"Military_Spending": 38673.7
+							},
+							{
+							"Country": "Russia",
+							"Year": "1999-01-01T00:00:00",
+							"Military_Spending": 17592.9
+							},
+							{
+							"Country": "Germany",
+							"Year": "1999-01-01T00:00:00",
+							"Military_Spending": 49545.2
+							},
+							{
+							"Country": "India",
+							"Year": "1999-01-01T00:00:00",
+							"Military_Spending": 31151.8
+							},
+							{
+							"Country": "United Kingdom",
+							"Year": "1999-01-01T00:00:00",
+							"Military_Spending": 58949.1
+							},
+							{
+							"Country": "United States of America",
+							"Year": "2000-01-01T00:00:00",
+							"Military_Spending": 583086.6
+							},
+							{
+							"Country": "China",
+							"Year": "2000-01-01T00:00:00",
+							"Military_Spending": 41859.9
+							},
+							{
+							"Country": "Russia",
+							"Year": "2000-01-01T00:00:00",
+							"Military_Spending": 23736.8
+							},
+							{
+							"Country": "Germany",
+							"Year": "2000-01-01T00:00:00",
+							"Military_Spending": 48763.5
+							},
+							{
+							"Country": "India",
+							"Year": "2000-01-01T00:00:00",
+							"Military_Spending": 32144.9
+							},
+							{
+							"Country": "United Kingdom",
+							"Year": "2000-01-01T00:00:00",
+							"Military_Spending": 60135.9
+							},
+							{
+							"Country": "United States of America",
+							"Year": "2001-01-01T00:00:00",
+							"Military_Spending": 587822.2
+							},
+							{
+							"Country": "China",
+							"Year": "2001-01-01T00:00:00",
+							"Military_Spending": 49634.6
+							},
+							{
+							"Country": "Russia",
+							"Year": "2001-01-01T00:00:00",
+							"Military_Spending": 25652.4
+							},
+							{
+							"Country": "Germany",
+							"Year": "2001-01-01T00:00:00",
+							"Military_Spending": 47962.1
+							},
+							{
+							"Country": "India",
+							"Year": "2001-01-01T00:00:00",
+							"Military_Spending": 33264.4
+							},
+							{
+							"Country": "United Kingdom",
+							"Year": "2001-01-01T00:00:00",
+							"Military_Spending": 62517.7
+							},
+							{
+							"Country": "United States of America",
+							"Year": "2002-01-01T00:00:00",
+							"Military_Spending": 660012
+							},
+							{
+							"Country": "China",
+							"Year": "2002-01-01T00:00:00",
+							"Military_Spending": 57007.6
+							},
+							{
+							"Country": "Russia",
+							"Year": "2002-01-01T00:00:00",
+							"Military_Spending": 28417.5
+							},
+							{
+							"Country": "Germany",
+							"Year": "2002-01-01T00:00:00",
+							"Military_Spending": 48092.5
+							},
+							{
+							"Country": "India",
+							"Year": "2002-01-01T00:00:00",
+							"Military_Spending": 33161.5
+							},
+							{
+							"Country": "United Kingdom",
+							"Year": "2002-01-01T00:00:00",
+							"Military_Spending": 66234.3
+							},
+							{
+							"Country": "United States of America",
+							"Year": "2003-01-01T00:00:00",
+							"Military_Spending": 751202.7
+							},
+							{
+							"Country": "China",
+							"Year": "2003-01-01T00:00:00",
+							"Military_Spending": 61696
+							},
+							{
+							"Country": "Russia",
+							"Year": "2003-01-01T00:00:00",
+							"Military_Spending": 29796.8
+							},
+							{
+							"Country": "Germany",
+							"Year": "2003-01-01T00:00:00",
+							"Military_Spending": 47435.3
+							},
+							{
+							"Country": "India",
+							"Year": "2003-01-01T00:00:00",
+							"Military_Spending": 33901.9
+							},
+							{
+							"Country": "United Kingdom",
+							"Year": "2003-01-01T00:00:00",
+							"Military_Spending": 70950.2
+							},
+							{
+							"Country": "United States of America",
+							"Year": "2004-01-01T00:00:00",
+							"Military_Spending": 818750.9
+							},
+							{
+							"Country": "China",
+							"Year": "2004-01-01T00:00:00",
+							"Military_Spending": 67956.4
+							},
+							{
+							"Country": "Russia",
+							"Year": "2004-01-01T00:00:00",
+							"Military_Spending": 31144.1
+							},
+							{
+							"Country": "Germany",
+							"Year": "2004-01-01T00:00:00",
+							"Military_Spending": 45982.1
+							},
+							{
+							"Country": "India",
+							"Year": "2004-01-01T00:00:00",
+							"Military_Spending": 39380.1
+							},
+							{
+							"Country": "United Kingdom",
+							"Year": "2004-01-01T00:00:00",
+							"Military_Spending": 71830.6
+							},
+							{
+							"Country": "United States of America",
+							"Year": "2005-01-01T00:00:00",
+							"Military_Spending": 856461.7
+							},
+							{
+							"Country": "China",
+							"Year": "2005-01-01T00:00:00",
+							"Military_Spending": 74625
+							},
+							{
+							"Country": "Russia",
+							"Year": "2005-01-01T00:00:00",
+							"Military_Spending": 35392.5
+							},
+							{
+							"Country": "Germany",
+							"Year": "2005-01-01T00:00:00",
+							"Military_Spending": 45266.9
+							},
+							{
+							"Country": "India",
+							"Year": "2005-01-01T00:00:00",
+							"Military_Spending": 41909.2
+							},
+							{
+							"Country": "United Kingdom",
+							"Year": "2005-01-01T00:00:00",
+							"Military_Spending": 72502.2
+							},
+							{
+							"Country": "United States of America",
+							"Year": "2006-01-01T00:00:00",
+							"Military_Spending": 868803
+							},
+							{
+							"Country": "China",
+							"Year": "2006-01-01T00:00:00",
+							"Military_Spending": 85898.2
+							},
+							{
+							"Country": "Russia",
+							"Year": "2006-01-01T00:00:00",
+							"Military_Spending": 39174.1
+							},
+							{
+							"Country": "Germany",
+							"Year": "2006-01-01T00:00:00",
+							"Military_Spending": 44461.3
+							},
+							{
+							"Country": "India",
+							"Year": "2006-01-01T00:00:00",
+							"Military_Spending": 42248.8
+							},
+							{
+							"Country": "United Kingdom",
+							"Year": "2006-01-01T00:00:00",
+							"Military_Spending": 72834.8
+							},
+							{
+							"Country": "United States of America",
+							"Year": "2007-01-01T00:00:00",
+							"Military_Spending": 891986.1
+							},
+							{
+							"Country": "China",
+							"Year": "2007-01-01T00:00:00",
+							"Military_Spending": 94424.5
+							},
+							{
+							"Country": "Russia",
+							"Year": "2007-01-01T00:00:00",
+							"Military_Spending": 42641
+							},
+							{
+							"Country": "Germany",
+							"Year": "2007-01-01T00:00:00",
+							"Military_Spending": 44529.3
+							},
+							{
+							"Country": "India",
+							"Year": "2007-01-01T00:00:00",
+							"Military_Spending": 42759.2
+							},
+							{
+							"Country": "United Kingdom",
+							"Year": "2007-01-01T00:00:00",
+							"Military_Spending": 74817.7
+							},
+							{
+							"Country": "United States of America",
+							"Year": "2008-01-01T00:00:00",
+							"Military_Spending": 956872.4
+							},
+							{
+							"Country": "China",
+							"Year": "2008-01-01T00:00:00",
+							"Military_Spending": 103310.8
+							},
+							{
+							"Country": "Russia",
+							"Year": "2008-01-01T00:00:00",
+							"Military_Spending": 46852.9
+							},
+							{
+							"Country": "Germany",
+							"Year": "2008-01-01T00:00:00",
+							"Military_Spending": 45582.2
+							},
+							{
+							"Country": "India",
+							"Year": "2008-01-01T00:00:00",
+							"Military_Spending": 48499.6
+							},
+							{
+							"Country": "United Kingdom",
+							"Year": "2008-01-01T00:00:00",
+							"Military_Spending": 78093.2
+							},
+							{
+							"Country": "United States of America",
+							"Year": "2009-01-01T00:00:00",
+							"Military_Spending": 1032168.3
+							},
+							{
+							"Country": "China",
+							"Year": "2009-01-01T00:00:00",
+							"Military_Spending": 125361.4
+							},
+							{
+							"Country": "Russia",
+							"Year": "2009-01-01T00:00:00",
+							"Military_Spending": 49157.6
+							},
+							{
+							"Country": "Germany",
+							"Year": "2009-01-01T00:00:00",
+							"Military_Spending": 47308.4
+							},
+							{
+							"Country": "India",
+							"Year": "2009-01-01T00:00:00",
+							"Military_Spending": 57100.7
+							},
+							{
+							"Country": "United Kingdom",
+							"Year": "2009-01-01T00:00:00",
+							"Military_Spending": 79344.4
+							},
+							{
+							"Country": "United States of America",
+							"Year": "2010-01-01T00:00:00",
+							"Military_Spending": 1061674.3
+							},
+							{
+							"Country": "China",
+							"Year": "2010-01-01T00:00:00",
+							"Military_Spending": 131535.8
+							},
+							{
+							"Country": "Russia",
+							"Year": "2010-01-01T00:00:00",
+							"Military_Spending": 50156.9
+							},
+							{
+							"Country": "Germany",
+							"Year": "2010-01-01T00:00:00",
+							"Military_Spending": 47423.5
+							},
+							{
+							"Country": "India",
+							"Year": "2010-01-01T00:00:00",
+							"Military_Spending": 57330.4
+							},
+							{
+							"Country": "United Kingdom",
+							"Year": "2010-01-01T00:00:00",
+							"Military_Spending": 78010.8
+							},
+							{
+							"Country": "United States of America",
+							"Year": "2011-01-01T00:00:00",
+							"Military_Spending": 1049103
+							},
+							{
+							"Country": "China",
+							"Year": "2011-01-01T00:00:00",
+							"Military_Spending": 141205.8
+							},
+							{
+							"Country": "Russia",
+							"Year": "2011-01-01T00:00:00",
+							"Military_Spending": 53529.3
+							},
+							{
+							"Country": "Germany",
+							"Year": "2011-01-01T00:00:00",
+							"Military_Spending": 46462.1
+							},
+							{
+							"Country": "India",
+							"Year": "2011-01-01T00:00:00",
+							"Military_Spending": 57857.2
+							},
+							{
+							"Country": "United Kingdom",
+							"Year": "2011-01-01T00:00:00",
+							"Military_Spending": 75373.5
+							},
+							{
+							"Country": "United States of America",
+							"Year": "2012-01-01T00:00:00",
+							"Military_Spending": 990830.7
+							},
+							{
+							"Country": "China",
+							"Year": "2012-01-01T00:00:00",
+							"Military_Spending": 155714.1
+							},
+							{
+							"Country": "Russia",
+							"Year": "2012-01-01T00:00:00",
+							"Military_Spending": 62021.8
+							},
+							{
+							"Country": "Germany",
+							"Year": "2012-01-01T00:00:00",
+							"Military_Spending": 47789.7
+							},
+							{
+							"Country": "India",
+							"Year": "2012-01-01T00:00:00",
+							"Military_Spending": 57563.6
+							},
+							{
+							"Country": "United Kingdom",
+							"Year": "2012-01-01T00:00:00",
+							"Military_Spending": 73280.5
+							},
+							{
+							"Country": "United States of America",
+							"Year": "2013-01-01T00:00:00",
+							"Military_Spending": 914617.2
+							},
+							{
+							"Country": "China",
+							"Year": "2013-01-01T00:00:00",
+							"Military_Spending": 168374.6
+							},
+							{
+							"Country": "Russia",
+							"Year": "2013-01-01T00:00:00",
+							"Military_Spending": 65044.4
+							},
+							{
+							"Country": "Germany",
+							"Year": "2013-01-01T00:00:00",
+							"Military_Spending": 46023.1
+							},
+							{
+							"Country": "India",
+							"Year": "2013-01-01T00:00:00",
+							"Military_Spending": 57601.7
+							},
+							{
+							"Country": "United Kingdom",
+							"Year": "2013-01-01T00:00:00",
+							"Military_Spending": 70601.4
+							},
+							{
+							"Country": "United States of America",
+							"Year": "2014-01-01T00:00:00",
+							"Military_Spending": 858357.1
+							},
+							{
+							"Country": "China",
+							"Year": "2014-01-01T00:00:00",
+							"Military_Spending": 181814.4
+							},
+							{
+							"Country": "Russia",
+							"Year": "2014-01-01T00:00:00",
+							"Military_Spending": 69709.6
+							},
+							{
+							"Country": "Germany",
+							"Year": "2014-01-01T00:00:00",
+							"Military_Spending": 46077.6
+							},
+							{
+							"Country": "India",
+							"Year": "2014-01-01T00:00:00",
+							"Military_Spending": 60408.3
+							},
+							{
+							"Country": "United Kingdom",
+							"Year": "2014-01-01T00:00:00",
+							"Military_Spending": 69339
+							},
+							{
+							"Country": "United States of America",
+							"Year": "2015-01-01T00:00:00",
+							"Military_Spending": 838865.1
+							},
+							{
+							"Country": "China",
+							"Year": "2015-01-01T00:00:00",
+							"Military_Spending": 196087.6
+							},
+							{
+							"Country": "Russia",
+							"Year": "2015-01-01T00:00:00",
+							"Military_Spending": 75132.9
+							},
+							{
+							"Country": "Germany",
+							"Year": "2015-01-01T00:00:00",
+							"Military_Spending": 46868.8
+							},
+							{
+							"Country": "India",
+							"Year": "2015-01-01T00:00:00",
+							"Military_Spending": 60982.3
+							},
+							{
+							"Country": "United Kingdom",
+							"Year": "2015-01-01T00:00:00",
+							"Military_Spending": 66673.6
+							},
+							{
+							"Country": "United States of America",
+							"Year": "2016-01-01T00:00:00",
+							"Military_Spending": 836290.9
+							},
+							{
+							"Country": "China",
+							"Year": "2016-01-01T00:00:00",
+							"Military_Spending": 207375.4
+							},
+							{
+							"Country": "Russia",
+							"Year": "2016-01-01T00:00:00",
+							"Military_Spending": 80545.6
+							},
+							{
+							"Country": "Germany",
+							"Year": "2016-01-01T00:00:00",
+							"Military_Spending": 48902.7
+							},
+							{
+							"Country": "India",
+							"Year": "2016-01-01T00:00:00",
+							"Military_Spending": 67201.7
+							},
+							{
+							"Country": "United Kingdom",
+							"Year": "2016-01-01T00:00:00",
+							"Military_Spending": 66441.1
+							},
+							{
+							"Country": "United States of America",
+							"Year": "2017-01-01T00:00:00",
+							"Military_Spending": 827674.3
+							},
+							{
+							"Country": "China",
+							"Year": "2017-01-01T00:00:00",
+							"Military_Spending": 220129.3
+							},
+							{
+							"Country": "Russia",
+							"Year": "2017-01-01T00:00:00",
+							"Military_Spending": 65267.8
+							},
+							{
+							"Country": "Germany",
+							"Year": "2017-01-01T00:00:00",
+							"Military_Spending": 50305.3
+							},
+							{
+							"Country": "India",
+							"Year": "2017-01-01T00:00:00",
+							"Military_Spending": 71935.6
+							},
+							{
+							"Country": "United Kingdom",
+							"Year": "2017-01-01T00:00:00",
+							"Military_Spending": 66562.5
+							},
+							{
+							"Country": "United States of America",
+							"Year": "2018-01-01T00:00:00",
+							"Military_Spending": 852585
+							},
+							{
+							"Country": "China",
+							"Year": "2018-01-01T00:00:00",
+							"Military_Spending": 233023.7
+							},
+							{
+							"Country": "Russia",
+							"Year": "2018-01-01T00:00:00",
+							"Military_Spending": 62808.7
+							},
+							{
+							"Country": "Germany",
+							"Year": "2018-01-01T00:00:00",
+							"Military_Spending": 51693.6
+							},
+							{
+							"Country": "India",
+							"Year": "2018-01-01T00:00:00",
+							"Military_Spending": 74468.9
+							},
+							{
+							"Country": "United Kingdom",
+							"Year": "2018-01-01T00:00:00",
+							"Military_Spending": 67063.5
+							},
+							{
+							"Country": "United States of America",
+							"Year": "2019-01-01T00:00:00",
+							"Military_Spending": 901032.1
+							},
+							{
+							"Country": "China",
+							"Year": "2019-01-01T00:00:00",
+							"Military_Spending": 244376
+							},
+							{
+							"Country": "Russia",
+							"Year": "2019-01-01T00:00:00",
+							"Military_Spending": 65623.9
+							},
+							{
+							"Country": "Germany",
+							"Year": "2019-01-01T00:00:00",
+							"Military_Spending": 56704.7
+							},
+							{
+							"Country": "India",
+							"Year": "2019-01-01T00:00:00",
+							"Military_Spending": 79726.1
+							},
+							{
+							"Country": "United Kingdom",
+							"Year": "2019-01-01T00:00:00",
+							"Military_Spending": 69849.4
+							},
+							{
+							"Country": "United States of America",
+							"Year": "2020-01-01T00:00:00",
+							"Military_Spending": 943446.6
+							},
+							{
+							"Country": "China",
+							"Year": "2020-01-01T00:00:00",
+							"Military_Spending": 255894.6
+							},
+							{
+							"Country": "Russia",
+							"Year": "2020-01-01T00:00:00",
+							"Military_Spending": 67165.7
+							},
+							{
+							"Country": "Germany",
+							"Year": "2020-01-01T00:00:00",
+							"Military_Spending": 60418.4
+							},
+							{
+							"Country": "India",
+							"Year": "2020-01-01T00:00:00",
+							"Military_Spending": 80209.7
+							},
+							{
+							"Country": "United Kingdom",
+							"Year": "2020-01-01T00:00:00",
+							"Military_Spending": 70958.9
+							},
+							{
+							"Country": "United States of America",
+							"Year": "2021-01-01T00:00:00",
+							"Military_Spending": 933334.5
+							},
+							{
+							"Country": "China",
+							"Year": "2021-01-01T00:00:00",
+							"Military_Spending": 262558.7
+							},
+							{
+							"Country": "Russia",
+							"Year": "2021-01-01T00:00:00",
+							"Military_Spending": 68496.3
+							},
+							{
+							"Country": "Germany",
+							"Year": "2021-01-01T00:00:00",
+							"Military_Spending": 59887.7
+							},
+							{
+							"Country": "India",
+							"Year": "2021-01-01T00:00:00",
+							"Military_Spending": 79701.3
+							},
+							{
+							"Country": "United Kingdom",
+							"Year": "2021-01-01T00:00:00",
+							"Military_Spending": 72051
+							},
+							{
+							"Country": "United States of America",
+							"Year": "2022-01-01T00:00:00",
+							"Military_Spending": 922552.5
+							},
+							{
+							"Country": "China",
+							"Year": "2022-01-01T00:00:00",
+							"Military_Spending": 274158.2
+							},
+							{
+							"Country": "Russia",
+							"Year": "2022-01-01T00:00:00",
+							"Military_Spending": 88678.7
+							},
+							{
+							"Country": "Germany",
+							"Year": "2022-01-01T00:00:00",
+							"Military_Spending": 62499.5
+							},
+							{
+							"Country": "India",
+							"Year": "2022-01-01T00:00:00",
+							"Military_Spending": 83218.2
+							},
+							{
+							"Country": "United Kingdom",
+							"Year": "2022-01-01T00:00:00",
+							"Military_Spending": 73189.3
+							},
+							{
+							"Country": "United States of America",
+							"Year": "2023-01-01T00:00:00",
+							"Military_Spending": 943032.8
+							},
+							{
+							"Country": "China",
+							"Year": "2023-01-01T00:00:00",
+							"Military_Spending": 292220.8
+							},
+							{
+							"Country": "Russia",
+							"Year": "2023-01-01T00:00:00",
+							"Military_Spending": 108959.5
+							},
+							{
+							"Country": "Germany",
+							"Year": "2023-01-01T00:00:00",
+							"Military_Spending": 70204.6
+							},
+							{
+							"Country": "India",
+							"Year": "2023-01-01T00:00:00",
+							"Military_Spending": 85232.5
+							},
+							{
+							"Country": "United Kingdom",
+							"Year": "2023-01-01T00:00:00",
+							"Military_Spending": 78166.9
+							},
+							{
+							"Country": "United States of America",
+							"Year": "2024-01-01T00:00:00",
+							"Military_Spending": 1004901
+							},
+							{
+							"Country": "China",
+							"Year": "2024-01-01T00:00:00",
+							"Military_Spending": 311900.4
+							},
+							{
+							"Country": "Russia",
+							"Year": "2024-01-01T00:00:00",
+							"Military_Spending": 149401.9
+							},
+							{
+							"Country": "Germany",
+							"Year": "2024-01-01T00:00:00",
+							"Military_Spending": 86148.3
+							},
+							{
+							"Country": "India",
+							"Year": "2024-01-01T00:00:00",
+							"Military_Spending": 85597.1
+							},
+							{
+							"Country": "United Kingdom",
+							"Year": "2024-01-01T00:00:00",
+							"Military_Spending": 89814.6
+							},
+							{
+							"Country": "United States of America",
+							"Year": "2025-01-01T00:00:00",
+							"Military_Spending": 929162.9
+							},
+							{
+							"Country": "China",
+							"Year": "2025-01-01T00:00:00",
+							"Military_Spending": 335017.6
+							},
+							{
+							"Country": "Russia",
+							"Year": "2025-01-01T00:00:00",
+							"Military_Spending": 158236.4
+							},
+							{
+							"Country": "Germany",
+							"Year": "2025-01-01T00:00:00",
+							"Military_Spending": 106727.2
+							},
+							{
+							"Country": "India",
+							"Year": "2025-01-01T00:00:00",
+							"Military_Spending": 93254.7
+							},
+							{
+							"Country": "United Kingdom",
+							"Year": "2025-01-01T00:00:00",
+							"Military_Spending": 87984.6
+							}
+						]
+						},
+						{
+						"name": "data_0",
+						"source": "data-afdaff8dc7290c88af464938658a86b4",
+						"transform": [
+							{"type": "formula", "expr": "toDate(datum[\"Year\"])", "as": "Year"},
+							{
+							"type": "formula",
+							"expr": "datum[\"Country\"]===\"United States of America\" ? 0 : datum[\"Country\"]===\"China\" ? 1 : datum[\"Country\"]===\"Russia\" ? 2 : datum[\"Country\"]===\"Germany\" ? 3 : datum[\"Country\"]===\"India\" ? 4 : datum[\"Country\"]===\"United Kingdom\" ? 5 : 6",
+							"as": "color_Country_sort_index"
+							}
+						]
+						}
+					],
+					"signals": [
+						{
+						"name": "unit",
+						"value": {},
+						"on": [
+							{"events": "pointermove", "update": "isTuple(group()) ? group() : unit"}
+						]
+						},
+						{
+						"name": "param_1e9efca18e7a2868",
+						"update": "vlSelectionResolve(\"param_1e9efca18e7a2868_store\", \"union\")"
+						},
+						{
+						"name": "param_1e9efca18e7a2868_Year",
+						"on": [
+							{"events": [{"source": "view", "type": "dblclick"}], "update": "null"},
+							{
+							"events": {"signal": "param_1e9efca18e7a2868_translate_delta"},
+							"update": "panLinear(param_1e9efca18e7a2868_translate_anchor.extent_x, -param_1e9efca18e7a2868_translate_delta.x / width)"
+							},
+							{
+							"events": {"signal": "param_1e9efca18e7a2868_zoom_delta"},
+							"update": "zoomLinear(domain(\"x\"), param_1e9efca18e7a2868_zoom_anchor.x, param_1e9efca18e7a2868_zoom_delta)"
+							}
+						]
+						},
+						{
+						"name": "param_1e9efca18e7a2868_Military_Spending",
+						"on": [
+							{"events": [{"source": "view", "type": "dblclick"}], "update": "null"},
+							{
+							"events": {"signal": "param_1e9efca18e7a2868_translate_delta"},
+							"update": "panLinear(param_1e9efca18e7a2868_translate_anchor.extent_y, param_1e9efca18e7a2868_translate_delta.y / height)"
+							},
+							{
+							"events": {"signal": "param_1e9efca18e7a2868_zoom_delta"},
+							"update": "zoomLinear(domain(\"y\"), param_1e9efca18e7a2868_zoom_anchor.y, param_1e9efca18e7a2868_zoom_delta)"
+							}
+						]
+						},
+						{
+						"name": "param_1e9efca18e7a2868_tuple",
+						"on": [
+							{
+							"events": [
+								{
+								"signal": "param_1e9efca18e7a2868_Year || param_1e9efca18e7a2868_Military_Spending"
+								}
+							],
+							"update": "param_1e9efca18e7a2868_Year && param_1e9efca18e7a2868_Military_Spending ? {unit: \"\", fields: param_1e9efca18e7a2868_tuple_fields, values: [param_1e9efca18e7a2868_Year,param_1e9efca18e7a2868_Military_Spending]} : null"
+							}
+						]
+						},
+						{
+						"name": "param_1e9efca18e7a2868_tuple_fields",
+						"value": [
+							{"field": "Year", "channel": "x", "type": "R"},
+							{"field": "Military_Spending", "channel": "y", "type": "R"}
+						]
+						},
+						{
+						"name": "param_1e9efca18e7a2868_translate_anchor",
+						"value": {},
+						"on": [
+							{
+							"events": [{"source": "scope", "type": "pointerdown"}],
+							"update": "{x: x(unit), y: y(unit), extent_x: domain(\"x\"), extent_y: domain(\"y\")}"
+							}
+						]
+						},
+						{
+						"name": "param_1e9efca18e7a2868_translate_delta",
+						"value": {},
+						"on": [
+							{
+							"events": [
+								{
+								"source": "window",
+								"type": "pointermove",
+								"consume": true,
+								"between": [
+									{"source": "scope", "type": "pointerdown"},
+									{"source": "window", "type": "pointerup"}
+								]
+								}
+							],
+							"update": "{x: param_1e9efca18e7a2868_translate_anchor.x - x(unit), y: param_1e9efca18e7a2868_translate_anchor.y - y(unit)}"
+							}
+						]
+						},
+						{
+						"name": "param_1e9efca18e7a2868_zoom_anchor",
+						"on": [
+							{
+							"events": [{"source": "scope", "type": "wheel", "consume": true}],
+							"update": "{x: invert(\"x\", x(unit)), y: invert(\"y\", y(unit))}"
+							}
+						]
+						},
+						{
+						"name": "param_1e9efca18e7a2868_zoom_delta",
+						"on": [
+							{
+							"events": [{"source": "scope", "type": "wheel", "consume": true}],
+							"force": true,
+							"update": "pow(1.001, event.deltaY * pow(16, event.deltaMode))"
+							}
+						]
+						},
+						{
+						"name": "param_1e9efca18e7a2868_modify",
+						"on": [
+							{
+							"events": {"signal": "param_1e9efca18e7a2868_tuple"},
+							"update": "modify(\"param_1e9efca18e7a2868_store\", param_1e9efca18e7a2868_tuple, true)"
+							}
+						]
+						}
+					],
+					"marks": [
+						{
+						"name": "pathgroup",
+						"type": "group",
+						"from": {
+							"facet": {
+							"name": "faceted_path_main",
+							"data": "data_0",
+							"groupby": ["Country"]
+							}
+						},
+						"encode": {
+							"update": {
+							"width": {"field": {"group": "width"}},
+							"height": {"field": {"group": "height"}}
+							}
+						},
+						"marks": [
+							{
+							"name": "marks",
+							"type": "line",
+							"clip": true,
+							"style": ["line"],
+							"sort": {"field": "x"},
+							"interactive": true,
+							"from": {"data": "faceted_path_main"},
+							"encode": {
+								"update": {
+								"stroke": {"scale": "color", "field": "Country"},
+								"tooltip": {
+									"signal": "{\"Country\": isValid(datum[\"Country\"]) ? isArray(datum[\"Country\"]) ? join(datum[\"Country\"], '\\n') : datum[\"Country\"] : \"\"+datum[\"Country\"], \"Year\": timeFormat(datum[\"Year\"], \"%Y\"), \"Spending (2024 $M)\": format(datum[\"Military_Spending\"], \"$,.0f\")}"
+								},
+								"description": {
+									"signal": "\"Year: \" + (timeFormat(datum[\"Year\"], \"%b %d, %Y\")) + \"; Military Spending (Constant 2024 $Millions USD): \" + (format(datum[\"Military_Spending\"], \"\")) + \"; Country: \" + (isValid(datum[\"Country\"]) ? isArray(datum[\"Country\"]) ? join(datum[\"Country\"], ' ') : datum[\"Country\"] : \"\"+datum[\"Country\"]) + \"; Spending (2024 $M): \" + (format(datum[\"Military_Spending\"], \"$,.0f\"))"
+								},
+								"x": {"scale": "x", "field": "Year"},
+								"y": {"scale": "y", "field": "Military_Spending"},
+								"defined": {
+									"signal": "isValid(datum[\"Year\"]) && isFinite(+datum[\"Year\"]) && isValid(datum[\"Military_Spending\"]) && isFinite(+datum[\"Military_Spending\"])"
+								}
+								}
+							}
+							}
+						]
+						}
+					],
+					"scales": [
+						{
+						"name": "x",
+						"type": "time",
+						"domain": {"data": "data_0", "field": "Year"},
+						"domainRaw": {"signal": "param_1e9efca18e7a2868[\"Year\"]"},
+						"range": [0, {"signal": "width"}]
+						},
+						{
+						"name": "y",
+						"type": "linear",
+						"domain": {"data": "data_0", "field": "Military_Spending"},
+						"domainRaw": {"signal": "param_1e9efca18e7a2868[\"Military_Spending\"]"},
+						"range": [{"signal": "height"}, 0],
+						"nice": true,
+						"zero": true
+						},
+						{
+						"name": "color",
+						"type": "ordinal",
+						"domain": {
+							"data": "data_0",
+							"field": "Country",
+							"sort": {"op": "min", "field": "color_Country_sort_index"}
+						},
+						"range": {"scheme": "category20"}
+						}
+					],
+					"axes": [
+						{
+						"scale": "x",
+						"orient": "bottom",
+						"gridScale": "y",
+						"grid": true,
+						"tickCount": {"signal": "ceil(width/40)"},
+						"domain": false,
+						"labels": false,
+						"aria": false,
+						"maxExtent": 0,
+						"minExtent": 0,
+						"ticks": false,
+						"zindex": 0
+						},
+						{
+						"scale": "y",
+						"orient": "left",
+						"gridScale": "x",
+						"grid": true,
+						"tickCount": {"signal": "ceil(height/40)"},
+						"domain": false,
+						"labels": false,
+						"aria": false,
+						"maxExtent": 0,
+						"minExtent": 0,
+						"ticks": false,
+						"zindex": 0
+						},
+						{
+						"scale": "x",
+						"orient": "bottom",
+						"grid": false,
+						"title": "Year",
+						"labelFlush": true,
+						"labelOverlap": true,
+						"tickCount": {"signal": "ceil(width/40)"},
+						"zindex": 0
+						},
+						{
+						"scale": "y",
+						"orient": "left",
+						"grid": false,
+						"title": "Military Spending (Constant 2024 $Millions USD)",
+						"labelOverlap": true,
+						"tickCount": {"signal": "ceil(height/40)"},
+						"zindex": 0
+						}
+					],
+					"legends": [{"title": "Country", "stroke": "color", "symbolType": "stroke"}]
+				};
+				vegaEmbed('#vis-fixing-1', spec5, { "actions": true }).catch(console.error);
+				const spec6 = {
+					"$schema": "https://vega.github.io/schema/vega/v6.json",
+					"background": "white",
+					"padding": 5,
+					"width": 500,
+					"height": 360,
+					"title": {
+						"text": "Military Spending Over Time (1990-2025) (Constant 2024 $Millions USD) Excluding the USA",
+						"frame": "group"
+					},
+					"style": "cell",
+					"data": [
+						{"name": "param_1e9efca18e7a2868_store"},
+						{
+						"name": "data-fa444598482fff433634aada53ec90b9",
+						"values": [
+							{
+							"Country": "China",
+							"Year": "1990-01-01T00:00:00",
+							"Military_Spending": 21639.6
+							},
+							{
+							"Country": "Russia",
+							"Year": "1990-01-01T00:00:00",
+							"Military_Spending": 0
+							},
+							{
+							"Country": "Germany",
+							"Year": "1990-01-01T00:00:00",
+							"Military_Spending": 70619.4
+							},
+							{
+							"Country": "India",
+							"Year": "1990-01-01T00:00:00",
+							"Military_Spending": 21862.1
+							},
+							{
+							"Country": "United Kingdom",
+							"Year": "1990-01-01T00:00:00",
+							"Military_Spending": 75189.1
+							},
+							{
+							"Country": "China",
+							"Year": "1991-01-01T00:00:00",
+							"Military_Spending": 23000.9
+							},
+							{
+							"Country": "Russia",
+							"Year": "1991-01-01T00:00:00",
+							"Military_Spending": 0
+							},
+							{
+							"Country": "Germany",
+							"Year": "1991-01-01T00:00:00",
+							"Military_Spending": 65354.3
+							},
+							{
+							"Country": "India",
+							"Year": "1991-01-01T00:00:00",
+							"Military_Spending": 20413
+							},
+							{
+							"Country": "United Kingdom",
+							"Year": "1991-01-01T00:00:00",
+							"Military_Spending": 76057.6
+							},
+							{
+							"Country": "China",
+							"Year": "1992-01-01T00:00:00",
+							"Military_Spending": 27972.1
+							},
+							{
+							"Country": "Russia",
+							"Year": "1992-01-01T00:00:00",
+							"Military_Spending": 47459.5
+							},
+							{
+							"Country": "Germany",
+							"Year": "1992-01-01T00:00:00",
+							"Military_Spending": 62155.6
+							},
+							{
+							"Country": "India",
+							"Year": "1992-01-01T00:00:00",
+							"Military_Spending": 19508.9
+							},
+							{
+							"Country": "United Kingdom",
+							"Year": "1992-01-01T00:00:00",
+							"Military_Spending": 71040
+							},
+							{
+							"Country": "China",
+							"Year": "1993-01-01T00:00:00",
+							"Military_Spending": 25722.8
+							},
+							{
+							"Country": "Russia",
+							"Year": "1993-01-01T00:00:00",
+							"Military_Spending": 41488
+							},
+							{
+							"Country": "Germany",
+							"Year": "1993-01-01T00:00:00",
+							"Military_Spending": 55876.7
+							},
+							{
+							"Country": "India",
+							"Year": "1993-01-01T00:00:00",
+							"Military_Spending": 22034.4
+							},
+							{
+							"Country": "United Kingdom",
+							"Year": "1993-01-01T00:00:00",
+							"Military_Spending": 67795.1
+							},
+							{
+							"Country": "China",
+							"Year": "1994-01-01T00:00:00",
+							"Military_Spending": 24750.4
+							},
+							{
+							"Country": "Russia",
+							"Year": "1994-01-01T00:00:00",
+							"Military_Spending": 39220.3
+							},
+							{
+							"Country": "Germany",
+							"Year": "1994-01-01T00:00:00",
+							"Military_Spending": 52110.8
+							},
+							{
+							"Country": "India",
+							"Year": "1994-01-01T00:00:00",
+							"Military_Spending": 22132.8
+							},
+							{
+							"Country": "United Kingdom",
+							"Year": "1994-01-01T00:00:00",
+							"Military_Spending": 65929.8
+							},
+							{
+							"Country": "China",
+							"Year": "1995-01-01T00:00:00",
+							"Military_Spending": 25707.1
+							},
+							{
+							"Country": "Russia",
+							"Year": "1995-01-01T00:00:00",
+							"Military_Spending": 25805.4
+							},
+							{
+							"Country": "Germany",
+							"Year": "1995-01-01T00:00:00",
+							"Military_Spending": 51253.3
+							},
+							{
+							"Country": "India",
+							"Year": "1995-01-01T00:00:00",
+							"Military_Spending": 22796.2
+							},
+							{
+							"Country": "United Kingdom",
+							"Year": "1995-01-01T00:00:00",
+							"Military_Spending": 61838.1
+							},
+							{
+							"Country": "China",
+							"Year": "1996-01-01T00:00:00",
+							"Military_Spending": 27234.5
+							},
+							{
+							"Country": "Russia",
+							"Year": "1996-01-01T00:00:00",
+							"Military_Spending": 24366.3
+							},
+							{
+							"Country": "Germany",
+							"Year": "1996-01-01T00:00:00",
+							"Military_Spending": 50251.2
+							},
+							{
+							"Country": "India",
+							"Year": "1996-01-01T00:00:00",
+							"Military_Spending": 23209.5
+							},
+							{
+							"Country": "United Kingdom",
+							"Year": "1996-01-01T00:00:00",
+							"Military_Spending": 61246.9
+							},
+							{
+							"Country": "China",
+							"Year": "1997-01-01T00:00:00",
+							"Military_Spending": 29054.2
+							},
+							{
+							"Country": "Russia",
+							"Year": "1997-01-01T00:00:00",
+							"Military_Spending": 26639
+							},
+							{
+							"Country": "Germany",
+							"Year": "1997-01-01T00:00:00",
+							"Military_Spending": 48396.3
+							},
+							{
+							"Country": "India",
+							"Year": "1997-01-01T00:00:00",
+							"Military_Spending": 25692.2
+							},
+							{
+							"Country": "United Kingdom",
+							"Year": "1997-01-01T00:00:00",
+							"Military_Spending": 59071.9
+							},
+							{
+							"Country": "China",
+							"Year": "1998-01-01T00:00:00",
+							"Military_Spending": 31723.6
+							},
+							{
+							"Country": "Russia",
+							"Year": "1998-01-01T00:00:00",
+							"Military_Spending": 15842
+							},
+							{
+							"Country": "Germany",
+							"Year": "1998-01-01T00:00:00",
+							"Military_Spending": 48563.4
+							},
+							{
+							"Country": "India",
+							"Year": "1998-01-01T00:00:00",
+							"Military_Spending": 26805.4
+							},
+							{
+							"Country": "United Kingdom",
+							"Year": "1998-01-01T00:00:00",
+							"Military_Spending": 59264.9
+							},
+							{
+							"Country": "China",
+							"Year": "1999-01-01T00:00:00",
+							"Military_Spending": 38673.7
+							},
+							{
+							"Country": "Russia",
+							"Year": "1999-01-01T00:00:00",
+							"Military_Spending": 17592.9
+							},
+							{
+							"Country": "Germany",
+							"Year": "1999-01-01T00:00:00",
+							"Military_Spending": 49545.2
+							},
+							{
+							"Country": "India",
+							"Year": "1999-01-01T00:00:00",
+							"Military_Spending": 31151.8
+							},
+							{
+							"Country": "United Kingdom",
+							"Year": "1999-01-01T00:00:00",
+							"Military_Spending": 58949.1
+							},
+							{
+							"Country": "China",
+							"Year": "2000-01-01T00:00:00",
+							"Military_Spending": 41859.9
+							},
+							{
+							"Country": "Russia",
+							"Year": "2000-01-01T00:00:00",
+							"Military_Spending": 23736.8
+							},
+							{
+							"Country": "Germany",
+							"Year": "2000-01-01T00:00:00",
+							"Military_Spending": 48763.5
+							},
+							{
+							"Country": "India",
+							"Year": "2000-01-01T00:00:00",
+							"Military_Spending": 32144.9
+							},
+							{
+							"Country": "United Kingdom",
+							"Year": "2000-01-01T00:00:00",
+							"Military_Spending": 60135.9
+							},
+							{
+							"Country": "China",
+							"Year": "2001-01-01T00:00:00",
+							"Military_Spending": 49634.6
+							},
+							{
+							"Country": "Russia",
+							"Year": "2001-01-01T00:00:00",
+							"Military_Spending": 25652.4
+							},
+							{
+							"Country": "Germany",
+							"Year": "2001-01-01T00:00:00",
+							"Military_Spending": 47962.1
+							},
+							{
+							"Country": "India",
+							"Year": "2001-01-01T00:00:00",
+							"Military_Spending": 33264.4
+							},
+							{
+							"Country": "United Kingdom",
+							"Year": "2001-01-01T00:00:00",
+							"Military_Spending": 62517.7
+							},
+							{
+							"Country": "China",
+							"Year": "2002-01-01T00:00:00",
+							"Military_Spending": 57007.6
+							},
+							{
+							"Country": "Russia",
+							"Year": "2002-01-01T00:00:00",
+							"Military_Spending": 28417.5
+							},
+							{
+							"Country": "Germany",
+							"Year": "2002-01-01T00:00:00",
+							"Military_Spending": 48092.5
+							},
+							{
+							"Country": "India",
+							"Year": "2002-01-01T00:00:00",
+							"Military_Spending": 33161.5
+							},
+							{
+							"Country": "United Kingdom",
+							"Year": "2002-01-01T00:00:00",
+							"Military_Spending": 66234.3
+							},
+							{
+							"Country": "China",
+							"Year": "2003-01-01T00:00:00",
+							"Military_Spending": 61696
+							},
+							{
+							"Country": "Russia",
+							"Year": "2003-01-01T00:00:00",
+							"Military_Spending": 29796.8
+							},
+							{
+							"Country": "Germany",
+							"Year": "2003-01-01T00:00:00",
+							"Military_Spending": 47435.3
+							},
+							{
+							"Country": "India",
+							"Year": "2003-01-01T00:00:00",
+							"Military_Spending": 33901.9
+							},
+							{
+							"Country": "United Kingdom",
+							"Year": "2003-01-01T00:00:00",
+							"Military_Spending": 70950.2
+							},
+							{
+							"Country": "China",
+							"Year": "2004-01-01T00:00:00",
+							"Military_Spending": 67956.4
+							},
+							{
+							"Country": "Russia",
+							"Year": "2004-01-01T00:00:00",
+							"Military_Spending": 31144.1
+							},
+							{
+							"Country": "Germany",
+							"Year": "2004-01-01T00:00:00",
+							"Military_Spending": 45982.1
+							},
+							{
+							"Country": "India",
+							"Year": "2004-01-01T00:00:00",
+							"Military_Spending": 39380.1
+							},
+							{
+							"Country": "United Kingdom",
+							"Year": "2004-01-01T00:00:00",
+							"Military_Spending": 71830.6
+							},
+							{
+							"Country": "China",
+							"Year": "2005-01-01T00:00:00",
+							"Military_Spending": 74625
+							},
+							{
+							"Country": "Russia",
+							"Year": "2005-01-01T00:00:00",
+							"Military_Spending": 35392.5
+							},
+							{
+							"Country": "Germany",
+							"Year": "2005-01-01T00:00:00",
+							"Military_Spending": 45266.9
+							},
+							{
+							"Country": "India",
+							"Year": "2005-01-01T00:00:00",
+							"Military_Spending": 41909.2
+							},
+							{
+							"Country": "United Kingdom",
+							"Year": "2005-01-01T00:00:00",
+							"Military_Spending": 72502.2
+							},
+							{
+							"Country": "China",
+							"Year": "2006-01-01T00:00:00",
+							"Military_Spending": 85898.2
+							},
+							{
+							"Country": "Russia",
+							"Year": "2006-01-01T00:00:00",
+							"Military_Spending": 39174.1
+							},
+							{
+							"Country": "Germany",
+							"Year": "2006-01-01T00:00:00",
+							"Military_Spending": 44461.3
+							},
+							{
+							"Country": "India",
+							"Year": "2006-01-01T00:00:00",
+							"Military_Spending": 42248.8
+							},
+							{
+							"Country": "United Kingdom",
+							"Year": "2006-01-01T00:00:00",
+							"Military_Spending": 72834.8
+							},
+							{
+							"Country": "China",
+							"Year": "2007-01-01T00:00:00",
+							"Military_Spending": 94424.5
+							},
+							{
+							"Country": "Russia",
+							"Year": "2007-01-01T00:00:00",
+							"Military_Spending": 42641
+							},
+							{
+							"Country": "Germany",
+							"Year": "2007-01-01T00:00:00",
+							"Military_Spending": 44529.3
+							},
+							{
+							"Country": "India",
+							"Year": "2007-01-01T00:00:00",
+							"Military_Spending": 42759.2
+							},
+							{
+							"Country": "United Kingdom",
+							"Year": "2007-01-01T00:00:00",
+							"Military_Spending": 74817.7
+							},
+							{
+							"Country": "China",
+							"Year": "2008-01-01T00:00:00",
+							"Military_Spending": 103310.8
+							},
+							{
+							"Country": "Russia",
+							"Year": "2008-01-01T00:00:00",
+							"Military_Spending": 46852.9
+							},
+							{
+							"Country": "Germany",
+							"Year": "2008-01-01T00:00:00",
+							"Military_Spending": 45582.2
+							},
+							{
+							"Country": "India",
+							"Year": "2008-01-01T00:00:00",
+							"Military_Spending": 48499.6
+							},
+							{
+							"Country": "United Kingdom",
+							"Year": "2008-01-01T00:00:00",
+							"Military_Spending": 78093.2
+							},
+							{
+							"Country": "China",
+							"Year": "2009-01-01T00:00:00",
+							"Military_Spending": 125361.4
+							},
+							{
+							"Country": "Russia",
+							"Year": "2009-01-01T00:00:00",
+							"Military_Spending": 49157.6
+							},
+							{
+							"Country": "Germany",
+							"Year": "2009-01-01T00:00:00",
+							"Military_Spending": 47308.4
+							},
+							{
+							"Country": "India",
+							"Year": "2009-01-01T00:00:00",
+							"Military_Spending": 57100.7
+							},
+							{
+							"Country": "United Kingdom",
+							"Year": "2009-01-01T00:00:00",
+							"Military_Spending": 79344.4
+							},
+							{
+							"Country": "China",
+							"Year": "2010-01-01T00:00:00",
+							"Military_Spending": 131535.8
+							},
+							{
+							"Country": "Russia",
+							"Year": "2010-01-01T00:00:00",
+							"Military_Spending": 50156.9
+							},
+							{
+							"Country": "Germany",
+							"Year": "2010-01-01T00:00:00",
+							"Military_Spending": 47423.5
+							},
+							{
+							"Country": "India",
+							"Year": "2010-01-01T00:00:00",
+							"Military_Spending": 57330.4
+							},
+							{
+							"Country": "United Kingdom",
+							"Year": "2010-01-01T00:00:00",
+							"Military_Spending": 78010.8
+							},
+							{
+							"Country": "China",
+							"Year": "2011-01-01T00:00:00",
+							"Military_Spending": 141205.8
+							},
+							{
+							"Country": "Russia",
+							"Year": "2011-01-01T00:00:00",
+							"Military_Spending": 53529.3
+							},
+							{
+							"Country": "Germany",
+							"Year": "2011-01-01T00:00:00",
+							"Military_Spending": 46462.1
+							},
+							{
+							"Country": "India",
+							"Year": "2011-01-01T00:00:00",
+							"Military_Spending": 57857.2
+							},
+							{
+							"Country": "United Kingdom",
+							"Year": "2011-01-01T00:00:00",
+							"Military_Spending": 75373.5
+							},
+							{
+							"Country": "China",
+							"Year": "2012-01-01T00:00:00",
+							"Military_Spending": 155714.1
+							},
+							{
+							"Country": "Russia",
+							"Year": "2012-01-01T00:00:00",
+							"Military_Spending": 62021.8
+							},
+							{
+							"Country": "Germany",
+							"Year": "2012-01-01T00:00:00",
+							"Military_Spending": 47789.7
+							},
+							{
+							"Country": "India",
+							"Year": "2012-01-01T00:00:00",
+							"Military_Spending": 57563.6
+							},
+							{
+							"Country": "United Kingdom",
+							"Year": "2012-01-01T00:00:00",
+							"Military_Spending": 73280.5
+							},
+							{
+							"Country": "China",
+							"Year": "2013-01-01T00:00:00",
+							"Military_Spending": 168374.6
+							},
+							{
+							"Country": "Russia",
+							"Year": "2013-01-01T00:00:00",
+							"Military_Spending": 65044.4
+							},
+							{
+							"Country": "Germany",
+							"Year": "2013-01-01T00:00:00",
+							"Military_Spending": 46023.1
+							},
+							{
+							"Country": "India",
+							"Year": "2013-01-01T00:00:00",
+							"Military_Spending": 57601.7
+							},
+							{
+							"Country": "United Kingdom",
+							"Year": "2013-01-01T00:00:00",
+							"Military_Spending": 70601.4
+							},
+							{
+							"Country": "China",
+							"Year": "2014-01-01T00:00:00",
+							"Military_Spending": 181814.4
+							},
+							{
+							"Country": "Russia",
+							"Year": "2014-01-01T00:00:00",
+							"Military_Spending": 69709.6
+							},
+							{
+							"Country": "Germany",
+							"Year": "2014-01-01T00:00:00",
+							"Military_Spending": 46077.6
+							},
+							{
+							"Country": "India",
+							"Year": "2014-01-01T00:00:00",
+							"Military_Spending": 60408.3
+							},
+							{
+							"Country": "United Kingdom",
+							"Year": "2014-01-01T00:00:00",
+							"Military_Spending": 69339
+							},
+							{
+							"Country": "China",
+							"Year": "2015-01-01T00:00:00",
+							"Military_Spending": 196087.6
+							},
+							{
+							"Country": "Russia",
+							"Year": "2015-01-01T00:00:00",
+							"Military_Spending": 75132.9
+							},
+							{
+							"Country": "Germany",
+							"Year": "2015-01-01T00:00:00",
+							"Military_Spending": 46868.8
+							},
+							{
+							"Country": "India",
+							"Year": "2015-01-01T00:00:00",
+							"Military_Spending": 60982.3
+							},
+							{
+							"Country": "United Kingdom",
+							"Year": "2015-01-01T00:00:00",
+							"Military_Spending": 66673.6
+							},
+							{
+							"Country": "China",
+							"Year": "2016-01-01T00:00:00",
+							"Military_Spending": 207375.4
+							},
+							{
+							"Country": "Russia",
+							"Year": "2016-01-01T00:00:00",
+							"Military_Spending": 80545.6
+							},
+							{
+							"Country": "Germany",
+							"Year": "2016-01-01T00:00:00",
+							"Military_Spending": 48902.7
+							},
+							{
+							"Country": "India",
+							"Year": "2016-01-01T00:00:00",
+							"Military_Spending": 67201.7
+							},
+							{
+							"Country": "United Kingdom",
+							"Year": "2016-01-01T00:00:00",
+							"Military_Spending": 66441.1
+							},
+							{
+							"Country": "China",
+							"Year": "2017-01-01T00:00:00",
+							"Military_Spending": 220129.3
+							},
+							{
+							"Country": "Russia",
+							"Year": "2017-01-01T00:00:00",
+							"Military_Spending": 65267.8
+							},
+							{
+							"Country": "Germany",
+							"Year": "2017-01-01T00:00:00",
+							"Military_Spending": 50305.3
+							},
+							{
+							"Country": "India",
+							"Year": "2017-01-01T00:00:00",
+							"Military_Spending": 71935.6
+							},
+							{
+							"Country": "United Kingdom",
+							"Year": "2017-01-01T00:00:00",
+							"Military_Spending": 66562.5
+							},
+							{
+							"Country": "China",
+							"Year": "2018-01-01T00:00:00",
+							"Military_Spending": 233023.7
+							},
+							{
+							"Country": "Russia",
+							"Year": "2018-01-01T00:00:00",
+							"Military_Spending": 62808.7
+							},
+							{
+							"Country": "Germany",
+							"Year": "2018-01-01T00:00:00",
+							"Military_Spending": 51693.6
+							},
+							{
+							"Country": "India",
+							"Year": "2018-01-01T00:00:00",
+							"Military_Spending": 74468.9
+							},
+							{
+							"Country": "United Kingdom",
+							"Year": "2018-01-01T00:00:00",
+							"Military_Spending": 67063.5
+							},
+							{
+							"Country": "China",
+							"Year": "2019-01-01T00:00:00",
+							"Military_Spending": 244376
+							},
+							{
+							"Country": "Russia",
+							"Year": "2019-01-01T00:00:00",
+							"Military_Spending": 65623.9
+							},
+							{
+							"Country": "Germany",
+							"Year": "2019-01-01T00:00:00",
+							"Military_Spending": 56704.7
+							},
+							{
+							"Country": "India",
+							"Year": "2019-01-01T00:00:00",
+							"Military_Spending": 79726.1
+							},
+							{
+							"Country": "United Kingdom",
+							"Year": "2019-01-01T00:00:00",
+							"Military_Spending": 69849.4
+							},
+							{
+							"Country": "China",
+							"Year": "2020-01-01T00:00:00",
+							"Military_Spending": 255894.6
+							},
+							{
+							"Country": "Russia",
+							"Year": "2020-01-01T00:00:00",
+							"Military_Spending": 67165.7
+							},
+							{
+							"Country": "Germany",
+							"Year": "2020-01-01T00:00:00",
+							"Military_Spending": 60418.4
+							},
+							{
+							"Country": "India",
+							"Year": "2020-01-01T00:00:00",
+							"Military_Spending": 80209.7
+							},
+							{
+							"Country": "United Kingdom",
+							"Year": "2020-01-01T00:00:00",
+							"Military_Spending": 70958.9
+							},
+							{
+							"Country": "China",
+							"Year": "2021-01-01T00:00:00",
+							"Military_Spending": 262558.7
+							},
+							{
+							"Country": "Russia",
+							"Year": "2021-01-01T00:00:00",
+							"Military_Spending": 68496.3
+							},
+							{
+							"Country": "Germany",
+							"Year": "2021-01-01T00:00:00",
+							"Military_Spending": 59887.7
+							},
+							{
+							"Country": "India",
+							"Year": "2021-01-01T00:00:00",
+							"Military_Spending": 79701.3
+							},
+							{
+							"Country": "United Kingdom",
+							"Year": "2021-01-01T00:00:00",
+							"Military_Spending": 72051
+							},
+							{
+							"Country": "China",
+							"Year": "2022-01-01T00:00:00",
+							"Military_Spending": 274158.2
+							},
+							{
+							"Country": "Russia",
+							"Year": "2022-01-01T00:00:00",
+							"Military_Spending": 88678.7
+							},
+							{
+							"Country": "Germany",
+							"Year": "2022-01-01T00:00:00",
+							"Military_Spending": 62499.5
+							},
+							{
+							"Country": "India",
+							"Year": "2022-01-01T00:00:00",
+							"Military_Spending": 83218.2
+							},
+							{
+							"Country": "United Kingdom",
+							"Year": "2022-01-01T00:00:00",
+							"Military_Spending": 73189.3
+							},
+							{
+							"Country": "China",
+							"Year": "2023-01-01T00:00:00",
+							"Military_Spending": 292220.8
+							},
+							{
+							"Country": "Russia",
+							"Year": "2023-01-01T00:00:00",
+							"Military_Spending": 108959.5
+							},
+							{
+							"Country": "Germany",
+							"Year": "2023-01-01T00:00:00",
+							"Military_Spending": 70204.6
+							},
+							{
+							"Country": "India",
+							"Year": "2023-01-01T00:00:00",
+							"Military_Spending": 85232.5
+							},
+							{
+							"Country": "United Kingdom",
+							"Year": "2023-01-01T00:00:00",
+							"Military_Spending": 78166.9
+							},
+							{
+							"Country": "China",
+							"Year": "2024-01-01T00:00:00",
+							"Military_Spending": 311900.4
+							},
+							{
+							"Country": "Russia",
+							"Year": "2024-01-01T00:00:00",
+							"Military_Spending": 149401.9
+							},
+							{
+							"Country": "Germany",
+							"Year": "2024-01-01T00:00:00",
+							"Military_Spending": 86148.3
+							},
+							{
+							"Country": "India",
+							"Year": "2024-01-01T00:00:00",
+							"Military_Spending": 85597.1
+							},
+							{
+							"Country": "United Kingdom",
+							"Year": "2024-01-01T00:00:00",
+							"Military_Spending": 89814.6
+							},
+							{
+							"Country": "China",
+							"Year": "2025-01-01T00:00:00",
+							"Military_Spending": 335017.6
+							},
+							{
+							"Country": "Russia",
+							"Year": "2025-01-01T00:00:00",
+							"Military_Spending": 158236.4
+							},
+							{
+							"Country": "Germany",
+							"Year": "2025-01-01T00:00:00",
+							"Military_Spending": 106727.2
+							},
+							{
+							"Country": "India",
+							"Year": "2025-01-01T00:00:00",
+							"Military_Spending": 93254.7
+							},
+							{
+							"Country": "United Kingdom",
+							"Year": "2025-01-01T00:00:00",
+							"Military_Spending": 87984.6
+							}
+						]
+						},
+						{
+						"name": "data_0",
+						"source": "data-fa444598482fff433634aada53ec90b9",
+						"transform": [
+							{"type": "formula", "expr": "toDate(datum[\"Year\"])", "as": "Year"},
+							{
+							"type": "formula",
+							"expr": "datum[\"Country\"]===\"China\" ? 0 : datum[\"Country\"]===\"Russia\" ? 1 : datum[\"Country\"]===\"Germany\" ? 2 : datum[\"Country\"]===\"India\" ? 3 : datum[\"Country\"]===\"United Kingdom\" ? 4 : 5",
+							"as": "color_Country_sort_index"
+							}
+						]
+						}
+					],
+					"signals": [
+						{
+						"name": "unit",
+						"value": {},
+						"on": [
+							{"events": "pointermove", "update": "isTuple(group()) ? group() : unit"}
+						]
+						},
+						{
+						"name": "param_1e9efca18e7a2868",
+						"update": "vlSelectionResolve(\"param_1e9efca18e7a2868_store\", \"union\")"
+						},
+						{
+						"name": "param_1e9efca18e7a2868_Year",
+						"on": [
+							{"events": [{"source": "view", "type": "dblclick"}], "update": "null"},
+							{
+							"events": {"signal": "param_1e9efca18e7a2868_translate_delta"},
+							"update": "panLinear(param_1e9efca18e7a2868_translate_anchor.extent_x, -param_1e9efca18e7a2868_translate_delta.x / width)"
+							},
+							{
+							"events": {"signal": "param_1e9efca18e7a2868_zoom_delta"},
+							"update": "zoomLinear(domain(\"x\"), param_1e9efca18e7a2868_zoom_anchor.x, param_1e9efca18e7a2868_zoom_delta)"
+							}
+						]
+						},
+						{
+						"name": "param_1e9efca18e7a2868_Military_Spending",
+						"on": [
+							{"events": [{"source": "view", "type": "dblclick"}], "update": "null"},
+							{
+							"events": {"signal": "param_1e9efca18e7a2868_translate_delta"},
+							"update": "panLinear(param_1e9efca18e7a2868_translate_anchor.extent_y, param_1e9efca18e7a2868_translate_delta.y / height)"
+							},
+							{
+							"events": {"signal": "param_1e9efca18e7a2868_zoom_delta"},
+							"update": "zoomLinear(domain(\"y\"), param_1e9efca18e7a2868_zoom_anchor.y, param_1e9efca18e7a2868_zoom_delta)"
+							}
+						]
+						},
+						{
+						"name": "param_1e9efca18e7a2868_tuple",
+						"on": [
+							{
+							"events": [
+								{
+								"signal": "param_1e9efca18e7a2868_Year || param_1e9efca18e7a2868_Military_Spending"
+								}
+							],
+							"update": "param_1e9efca18e7a2868_Year && param_1e9efca18e7a2868_Military_Spending ? {unit: \"\", fields: param_1e9efca18e7a2868_tuple_fields, values: [param_1e9efca18e7a2868_Year,param_1e9efca18e7a2868_Military_Spending]} : null"
+							}
+						]
+						},
+						{
+						"name": "param_1e9efca18e7a2868_tuple_fields",
+						"value": [
+							{"field": "Year", "channel": "x", "type": "R"},
+							{"field": "Military_Spending", "channel": "y", "type": "R"}
+						]
+						},
+						{
+						"name": "param_1e9efca18e7a2868_translate_anchor",
+						"value": {},
+						"on": [
+							{
+							"events": [{"source": "scope", "type": "pointerdown"}],
+							"update": "{x: x(unit), y: y(unit), extent_x: domain(\"x\"), extent_y: domain(\"y\")}"
+							}
+						]
+						},
+						{
+						"name": "param_1e9efca18e7a2868_translate_delta",
+						"value": {},
+						"on": [
+							{
+							"events": [
+								{
+								"source": "window",
+								"type": "pointermove",
+								"consume": true,
+								"between": [
+									{"source": "scope", "type": "pointerdown"},
+									{"source": "window", "type": "pointerup"}
+								]
+								}
+							],
+							"update": "{x: param_1e9efca18e7a2868_translate_anchor.x - x(unit), y: param_1e9efca18e7a2868_translate_anchor.y - y(unit)}"
+							}
+						]
+						},
+						{
+						"name": "param_1e9efca18e7a2868_zoom_anchor",
+						"on": [
+							{
+							"events": [{"source": "scope", "type": "wheel", "consume": true}],
+							"update": "{x: invert(\"x\", x(unit)), y: invert(\"y\", y(unit))}"
+							}
+						]
+						},
+						{
+						"name": "param_1e9efca18e7a2868_zoom_delta",
+						"on": [
+							{
+							"events": [{"source": "scope", "type": "wheel", "consume": true}],
+							"force": true,
+							"update": "pow(1.001, event.deltaY * pow(16, event.deltaMode))"
+							}
+						]
+						},
+						{
+						"name": "param_1e9efca18e7a2868_modify",
+						"on": [
+							{
+							"events": {"signal": "param_1e9efca18e7a2868_tuple"},
+							"update": "modify(\"param_1e9efca18e7a2868_store\", param_1e9efca18e7a2868_tuple, true)"
+							}
+						]
+						}
+					],
+					"marks": [
+						{
+						"name": "pathgroup",
+						"type": "group",
+						"from": {
+							"facet": {
+							"name": "faceted_path_main",
+							"data": "data_0",
+							"groupby": ["Country"]
+							}
+						},
+						"encode": {
+							"update": {
+							"width": {"field": {"group": "width"}},
+							"height": {"field": {"group": "height"}}
+							}
+						},
+						"marks": [
+							{
+							"name": "marks",
+							"type": "line",
+							"clip": true,
+							"style": ["line"],
+							"sort": {"field": "x"},
+							"interactive": true,
+							"from": {"data": "faceted_path_main"},
+							"encode": {
+								"update": {
+								"stroke": {"scale": "color", "field": "Country"},
+								"tooltip": {
+									"signal": "{\"Country\": isValid(datum[\"Country\"]) ? isArray(datum[\"Country\"]) ? join(datum[\"Country\"], '\\n') : datum[\"Country\"] : \"\"+datum[\"Country\"], \"Year\": timeFormat(datum[\"Year\"], \"%Y\"), \"Spending (2024 $M)\": format(datum[\"Military_Spending\"], \"$,.0f\")}"
+								},
+								"description": {
+									"signal": "\"Year: \" + (timeFormat(datum[\"Year\"], \"%b %d, %Y\")) + \"; Military Spending (Constant 2024 $Millions USD): \" + (format(datum[\"Military_Spending\"], \"\")) + \"; Country: \" + (isValid(datum[\"Country\"]) ? isArray(datum[\"Country\"]) ? join(datum[\"Country\"], ' ') : datum[\"Country\"] : \"\"+datum[\"Country\"]) + \"; Spending (2024 $M): \" + (format(datum[\"Military_Spending\"], \"$,.0f\"))"
+								},
+								"x": {"scale": "x", "field": "Year"},
+								"y": {"scale": "y", "field": "Military_Spending"},
+								"defined": {
+									"signal": "isValid(datum[\"Year\"]) && isFinite(+datum[\"Year\"]) && isValid(datum[\"Military_Spending\"]) && isFinite(+datum[\"Military_Spending\"])"
+								}
+								}
+							}
+							}
+						]
+						}
+					],
+					"scales": [
+						{
+						"name": "x",
+						"type": "time",
+						"domain": {"data": "data_0", "field": "Year"},
+						"domainRaw": {"signal": "param_1e9efca18e7a2868[\"Year\"]"},
+						"range": [0, {"signal": "width"}]
+						},
+						{
+						"name": "y",
+						"type": "linear",
+						"domain": {"data": "data_0", "field": "Military_Spending"},
+						"domainRaw": {"signal": "param_1e9efca18e7a2868[\"Military_Spending\"]"},
+						"range": [{"signal": "height"}, 0],
+						"nice": true,
+						"zero": true
+						},
+						{
+						"name": "color",
+						"type": "ordinal",
+						"domain": {
+							"data": "data_0",
+							"field": "Country",
+							"sort": {"op": "min", "field": "color_Country_sort_index"}
+						},
+						"range": {"scheme": "category20"}
+						}
+					],
+					"axes": [
+						{
+						"scale": "x",
+						"orient": "bottom",
+						"gridScale": "y",
+						"grid": true,
+						"tickCount": {"signal": "ceil(width/40)"},
+						"domain": false,
+						"labels": false,
+						"aria": false,
+						"maxExtent": 0,
+						"minExtent": 0,
+						"ticks": false,
+						"zindex": 0
+						},
+						{
+						"scale": "y",
+						"orient": "left",
+						"gridScale": "x",
+						"grid": true,
+						"tickCount": {"signal": "ceil(height/40)"},
+						"domain": false,
+						"labels": false,
+						"aria": false,
+						"maxExtent": 0,
+						"minExtent": 0,
+						"ticks": false,
+						"zindex": 0
+						},
+						{
+						"scale": "x",
+						"orient": "bottom",
+						"grid": false,
+						"title": "Year",
+						"labelFlush": true,
+						"labelOverlap": true,
+						"tickCount": {"signal": "ceil(width/40)"},
+						"zindex": 0
+						},
+						{
+						"scale": "y",
+						"orient": "left",
+						"grid": false,
+						"title": "Military Spending (Constant 2024 $Millions USD)",
+						"labelOverlap": true,
+						"tickCount": {"signal": "ceil(height/40)"},
+						"zindex": 0
+						}
+					],
+					"legends": [{"title": "Country", "stroke": "color", "symbolType": "stroke"}]
+				};
+				vegaEmbed('#vis-fixing-2', spec6, { "actions": true }).catch(console.error);
 			</script>
 
 	</body>
 </html>
-
