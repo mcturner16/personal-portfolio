@@ -1,0 +1,283 @@
+{
+    "$schema": "https://vega.github.io/schema/vega/v6.json",
+    "background": "white",
+    "padding": 5,
+    "width": 600,
+    "height": 360,
+    "title": {"text": "Median Movie Revenue by Genre", "frame": "group"},
+    "style": "cell",
+    "data": [
+        {"name": "param_1e9efca18e7a2868_store"},
+        {
+        "name": "data-e6a7d3ca67af0d3b57320cec3782df66",
+        "values": [
+            {"genres": "Action", "median_revenue": 81967450, "movie_count": 15958},
+            {
+            "genres": "Adventure",
+            "median_revenue": 95608995,
+            "movie_count": 10359
+            },
+            {
+            "genres": "Animation",
+            "median_revenue": 44091067,
+            "movie_count": 2023
+            },
+            {"genres": "Comedy", "median_revenue": 25196249, "movie_count": 13071},
+            {"genres": "Crime", "median_revenue": 31724284, "movie_count": 8897},
+            {
+            "genres": "Documentary",
+            "median_revenue": 3162153,
+            "movie_count": 1151
+            },
+            {"genres": "Drama", "median_revenue": 16566240, "movie_count": 30196},
+            {"genres": "Family", "median_revenue": 74597643, "movie_count": 3257},
+            {"genres": "Fantasy", "median_revenue": 86915017, "movie_count": 4883},
+            {"genres": "Foreign", "median_revenue": 312010, "movie_count": 393},
+            {"genres": "History", "median_revenue": 24000000, "movie_count": 4167},
+            {"genres": "Horror", "median_revenue": 25519165.5, "movie_count": 4952},
+            {"genres": "Music", "median_revenue": 17709155, "movie_count": 1649},
+            {"genres": "Mystery", "median_revenue": 38610009, "movie_count": 4978},
+            {"genres": "Romance", "median_revenue": 15656193, "movie_count": 8918},
+            {
+            "genres": "Science Fiction",
+            "median_revenue": 73648228,
+            "movie_count": 6205
+            },
+            {"genres": "TV Movie", "median_revenue": 42000000, "movie_count": 9},
+            {
+            "genres": "Thriller",
+            "median_revenue": 41954997,
+            "movie_count": 17713
+            },
+            {"genres": "War", "median_revenue": 22889018, "movie_count": 4196},
+            {"genres": "Western", "median_revenue": 10496317, "movie_count": 789}
+        ]
+        },
+        {
+        "name": "data_0",
+        "source": "data-e6a7d3ca67af0d3b57320cec3782df66",
+        "transform": [
+            {
+            "type": "aggregate",
+            "groupby": ["median_revenue", "genres"],
+            "ops": ["count"],
+            "fields": [null],
+            "as": ["__count"]
+            },
+            {
+            "type": "filter",
+            "expr": "isValid(datum[\"median_revenue\"]) && isFinite(+datum[\"median_revenue\"])"
+            }
+        ]
+        }
+    ],
+    "signals": [
+        {
+        "name": "unit",
+        "value": {},
+        "on": [
+            {"events": "pointermove", "update": "isTuple(group()) ? group() : unit"}
+        ]
+        },
+        {
+        "name": "param_1e9efca18e7a2868",
+        "update": "vlSelectionResolve(\"param_1e9efca18e7a2868_store\", \"union\")"
+        },
+        {
+        "name": "param_1e9efca18e7a2868_median_revenue",
+        "on": [
+            {"events": [{"source": "view", "type": "dblclick"}], "update": "null"},
+            {
+            "events": {"signal": "param_1e9efca18e7a2868_translate_delta"},
+            "update": "panLinear(param_1e9efca18e7a2868_translate_anchor.extent_x, -param_1e9efca18e7a2868_translate_delta.x / width)"
+            },
+            {
+            "events": {"signal": "param_1e9efca18e7a2868_zoom_delta"},
+            "update": "zoomLinear(domain(\"x\"), param_1e9efca18e7a2868_zoom_anchor.x, param_1e9efca18e7a2868_zoom_delta)"
+            }
+        ]
+        },
+        {
+        "name": "param_1e9efca18e7a2868_genres",
+        "on": [
+            {"events": [{"source": "view", "type": "dblclick"}], "update": "null"},
+            {
+            "events": {"signal": "param_1e9efca18e7a2868_translate_delta"},
+            "update": "panLinear(param_1e9efca18e7a2868_translate_anchor.extent_y, param_1e9efca18e7a2868_translate_delta.y / height)"
+            },
+            {
+            "events": {"signal": "param_1e9efca18e7a2868_zoom_delta"},
+            "update": "zoomLinear(domain(\"y\"), param_1e9efca18e7a2868_zoom_anchor.y, param_1e9efca18e7a2868_zoom_delta)"
+            }
+        ]
+        },
+        {
+        "name": "param_1e9efca18e7a2868_tuple",
+        "on": [
+            {
+            "events": [
+                {
+                "signal": "param_1e9efca18e7a2868_median_revenue || param_1e9efca18e7a2868_genres"
+                }
+            ],
+            "update": "param_1e9efca18e7a2868_median_revenue && param_1e9efca18e7a2868_genres ? {unit: \"\", fields: param_1e9efca18e7a2868_tuple_fields, values: [param_1e9efca18e7a2868_median_revenue,param_1e9efca18e7a2868_genres]} : null"
+            }
+        ]
+        },
+        {
+        "name": "param_1e9efca18e7a2868_tuple_fields",
+        "value": [
+            {"field": "median_revenue", "channel": "x", "type": "R"},
+            {"field": "genres", "channel": "y", "type": "E"}
+        ]
+        },
+        {
+        "name": "param_1e9efca18e7a2868_translate_anchor",
+        "value": {},
+        "on": [
+            {
+            "events": [{"source": "scope", "type": "pointerdown"}],
+            "update": "{x: x(unit), y: y(unit), extent_x: domain(\"x\"), extent_y: domain(\"y\")}"
+            }
+        ]
+        },
+        {
+        "name": "param_1e9efca18e7a2868_translate_delta",
+        "value": {},
+        "on": [
+            {
+            "events": [
+                {
+                "source": "window",
+                "type": "pointermove",
+                "consume": true,
+                "between": [
+                    {"source": "scope", "type": "pointerdown"},
+                    {"source": "window", "type": "pointerup"}
+                ]
+                }
+            ],
+            "update": "{x: param_1e9efca18e7a2868_translate_anchor.x - x(unit), y: param_1e9efca18e7a2868_translate_anchor.y - y(unit)}"
+            }
+        ]
+        },
+        {
+        "name": "param_1e9efca18e7a2868_zoom_anchor",
+        "on": [
+            {
+            "events": [{"source": "scope", "type": "wheel", "consume": true}],
+            "update": "{x: invert(\"x\", x(unit)), y: invert(\"y\", y(unit))}"
+            }
+        ]
+        },
+        {
+        "name": "param_1e9efca18e7a2868_zoom_delta",
+        "on": [
+            {
+            "events": [{"source": "scope", "type": "wheel", "consume": true}],
+            "force": true,
+            "update": "pow(1.001, event.deltaY * pow(16, event.deltaMode))"
+            }
+        ]
+        },
+        {
+        "name": "param_1e9efca18e7a2868_modify",
+        "on": [
+            {
+            "events": {"signal": "param_1e9efca18e7a2868_tuple"},
+            "update": "modify(\"param_1e9efca18e7a2868_store\", param_1e9efca18e7a2868_tuple, true)"
+            }
+        ]
+        }
+    ],
+    "marks": [
+        {
+        "name": "marks",
+        "type": "rect",
+        "clip": true,
+        "style": ["bar"],
+        "interactive": true,
+        "from": {"data": "data_0"},
+        "encode": {
+            "update": {
+            "opacity": {"value": 0.7},
+            "fill": {"scale": "color", "field": "genres"},
+            "tooltip": {
+                "signal": "{\"Median Revenue (USD)\": format(datum[\"median_revenue\"], \"$,.0f\"), \"Genre\": isValid(datum[\"genres\"]) ? isArray(datum[\"genres\"]) ? join(datum[\"genres\"], '\\n') : datum[\"genres\"] : \"\"+datum[\"genres\"], \"Total Movie Count\": format(datum[\"__count\"], \"\")}"
+            },
+            "ariaRoleDescription": {"value": "bar"},
+            "description": {
+                "signal": "\"Median Revenue (USD): \" + (format(datum[\"median_revenue\"], \"$,.0f\")) + \"; Genre: \" + (isValid(datum[\"genres\"]) ? isArray(datum[\"genres\"]) ? join(datum[\"genres\"], ' ') : datum[\"genres\"] : \"\"+datum[\"genres\"]) + \"; genres: \" + (isValid(datum[\"genres\"]) ? isArray(datum[\"genres\"]) ? join(datum[\"genres\"], ' ') : datum[\"genres\"] : \"\"+datum[\"genres\"]) + \"; Total Movie Count: \" + (format(datum[\"__count\"], \"\"))"
+            },
+            "x": {"scale": "x", "field": "median_revenue"},
+            "x2": {"scale": "x", "value": 0},
+            "y": {"scale": "y", "field": "genres"},
+            "height": {"signal": "max(0.25, bandwidth('y'))"}
+            }
+        }
+        }
+    ],
+    "scales": [
+        {
+        "name": "x",
+        "type": "linear",
+        "domain": {"data": "data_0", "field": "median_revenue"},
+        "domainRaw": {"signal": "param_1e9efca18e7a2868[\"median_revenue\"]"},
+        "range": [0, {"signal": "width"}],
+        "nice": true,
+        "zero": true
+        },
+        {
+        "name": "y",
+        "type": "band",
+        "domain": {
+            "data": "data-e6a7d3ca67af0d3b57320cec3782df66",
+            "field": "genres",
+            "sort": {"op": "min", "field": "median_revenue", "order": "descending"}
+        },
+        "range": [0, {"signal": "height"}],
+        "paddingInner": 0.1,
+        "paddingOuter": 0.05
+        },
+        {
+        "name": "color",
+        "type": "ordinal",
+        "domain": {"data": "data_0", "field": "genres", "sort": true},
+        "range": "category"
+        }
+    ],
+    "axes": [
+        {
+        "scale": "x",
+        "orient": "bottom",
+        "gridScale": "y",
+        "grid": true,
+        "tickCount": {"signal": "ceil(width/40)"},
+        "domain": false,
+        "labels": false,
+        "aria": false,
+        "maxExtent": 0,
+        "minExtent": 0,
+        "ticks": false,
+        "zindex": 0
+        },
+        {
+        "scale": "x",
+        "orient": "bottom",
+        "grid": false,
+        "title": "Median Revenue (USD)",
+        "format": "$,.0f",
+        "labelFlush": true,
+        "labelOverlap": true,
+        "tickCount": {"signal": "ceil(width/40)"},
+        "zindex": 0
+        },
+        {
+        "scale": "y",
+        "orient": "left",
+        "grid": false,
+        "title": "Genre",
+        "zindex": 0
+        }
+    ]
+}

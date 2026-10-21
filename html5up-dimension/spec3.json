@@ -1,0 +1,383 @@
+{
+    "$schema": "https://vega.github.io/schema/vega/v6.json",
+    "background": "white",
+    "padding": 5,
+    "width": 600,
+    "height": 360,
+    "title": {"text": "Median Movie Profit by Genre", "frame": "group"},
+    "style": "cell",
+    "data": [
+        {"name": "param_1e9efca18e7a2868_store"},
+        {
+        "name": "data-f85e33c993b6f407e69cc5688370094f",
+        "values": [
+            {
+            "genres": "Action",
+            "median_revenue": 101646581,
+            "median_budget": 54000000,
+            "movie_count": 14242,
+            "median_profit": 47646581
+            },
+            {
+            "genres": "Adventure",
+            "median_revenue": 119269486,
+            "median_budget": 65000000,
+            "movie_count": 9245,
+            "median_profit": 54269486
+            },
+            {
+            "genres": "Animation",
+            "median_revenue": 95789342,
+            "median_budget": 30000000,
+            "movie_count": 1472,
+            "median_profit": 65789342
+            },
+            {
+            "genres": "Comedy",
+            "median_revenue": 39031337,
+            "median_budget": 23000000,
+            "movie_count": 10177,
+            "median_profit": 16031337
+            },
+            {
+            "genres": "Crime",
+            "median_revenue": 40031879,
+            "median_budget": 25000000,
+            "movie_count": 7630,
+            "median_profit": 15031879
+            },
+            {
+            "genres": "Documentary",
+            "median_revenue": 14624826,
+            "median_budget": 4317946,
+            "movie_count": 532,
+            "median_profit": 10306880
+            },
+            {
+            "genres": "Drama",
+            "median_revenue": 24127895,
+            "median_budget": 18000000,
+            "movie_count": 22724,
+            "median_profit": 6127895
+            },
+            {
+            "genres": "Family",
+            "median_revenue": 109862682,
+            "median_budget": 50000000,
+            "movie_count": 2549,
+            "median_profit": 59862682
+            },
+            {
+            "genres": "Fantasy",
+            "median_revenue": 108100003,
+            "median_budget": 54000000,
+            "movie_count": 4096,
+            "median_profit": 54100003
+            },
+            {
+            "genres": "Foreign",
+            "median_revenue": 721651,
+            "median_budget": 1911576,
+            "movie_count": 136,
+            "median_profit": -1189925
+            },
+            {
+            "genres": "History",
+            "median_revenue": 34700291,
+            "median_budget": 22000000,
+            "movie_count": 3719,
+            "median_profit": 12700291
+            },
+            {
+            "genres": "Horror",
+            "median_revenue": 38755073,
+            "median_budget": 17000000,
+            "movie_count": 4072,
+            "median_profit": 21755073
+            },
+            {
+            "genres": "Music",
+            "median_revenue": 39462438,
+            "median_budget": 15000000,
+            "movie_count": 1303,
+            "median_profit": 24462438
+            },
+            {
+            "genres": "Mystery",
+            "median_revenue": 57958696,
+            "median_budget": 30000000,
+            "movie_count": 4069,
+            "median_profit": 27958696
+            },
+            {
+            "genres": "Romance",
+            "median_revenue": 19271312,
+            "median_budget": 17000000,
+            "movie_count": 6974,
+            "median_profit": 2271312
+            },
+            {
+            "genres": "Science Fiction",
+            "median_revenue": 88489643,
+            "median_budget": 45000000,
+            "movie_count": 5715,
+            "median_profit": 43489643
+            },
+            {
+            "genres": "TV Movie",
+            "median_revenue": 42000000,
+            "median_budget": 5000000,
+            "movie_count": 9,
+            "median_profit": 37000000
+            },
+            {
+            "genres": "Thriller",
+            "median_revenue": 58401898,
+            "median_budget": 31000000,
+            "movie_count": 15397,
+            "median_profit": 27401898
+            },
+            {
+            "genres": "War",
+            "median_revenue": 28900000,
+            "median_budget": 22000000,
+            "movie_count": 3513,
+            "median_profit": 6900000
+            },
+            {
+            "genres": "Western",
+            "median_revenue": 20211394,
+            "median_budget": 22000000,
+            "movie_count": 570,
+            "median_profit": -1788606
+            }
+        ]
+        },
+        {
+        "name": "data_0",
+        "source": "data-f85e33c993b6f407e69cc5688370094f",
+        "transform": [
+            {
+            "type": "aggregate",
+            "groupby": ["median_profit", "genres"],
+            "ops": ["count"],
+            "fields": [null],
+            "as": ["__count"]
+            },
+            {
+            "type": "filter",
+            "expr": "isValid(datum[\"median_profit\"]) && isFinite(+datum[\"median_profit\"])"
+            }
+        ]
+        }
+    ],
+    "signals": [
+        {
+        "name": "unit",
+        "value": {},
+        "on": [
+            {"events": "pointermove", "update": "isTuple(group()) ? group() : unit"}
+        ]
+        },
+        {
+        "name": "param_1e9efca18e7a2868",
+        "update": "vlSelectionResolve(\"param_1e9efca18e7a2868_store\", \"union\")"
+        },
+        {
+        "name": "param_1e9efca18e7a2868_median_profit",
+        "on": [
+            {"events": [{"source": "view", "type": "dblclick"}], "update": "null"},
+            {
+            "events": {"signal": "param_1e9efca18e7a2868_translate_delta"},
+            "update": "panLinear(param_1e9efca18e7a2868_translate_anchor.extent_x, -param_1e9efca18e7a2868_translate_delta.x / width)"
+            },
+            {
+            "events": {"signal": "param_1e9efca18e7a2868_zoom_delta"},
+            "update": "zoomLinear(domain(\"x\"), param_1e9efca18e7a2868_zoom_anchor.x, param_1e9efca18e7a2868_zoom_delta)"
+            }
+        ]
+        },
+        {
+        "name": "param_1e9efca18e7a2868_genres",
+        "on": [
+            {"events": [{"source": "view", "type": "dblclick"}], "update": "null"},
+            {
+            "events": {"signal": "param_1e9efca18e7a2868_translate_delta"},
+            "update": "panLinear(param_1e9efca18e7a2868_translate_anchor.extent_y, param_1e9efca18e7a2868_translate_delta.y / height)"
+            },
+            {
+            "events": {"signal": "param_1e9efca18e7a2868_zoom_delta"},
+            "update": "zoomLinear(domain(\"y\"), param_1e9efca18e7a2868_zoom_anchor.y, param_1e9efca18e7a2868_zoom_delta)"
+            }
+        ]
+        },
+        {
+        "name": "param_1e9efca18e7a2868_tuple",
+        "on": [
+            {
+            "events": [
+                {
+                "signal": "param_1e9efca18e7a2868_median_profit || param_1e9efca18e7a2868_genres"
+                }
+            ],
+            "update": "param_1e9efca18e7a2868_median_profit && param_1e9efca18e7a2868_genres ? {unit: \"\", fields: param_1e9efca18e7a2868_tuple_fields, values: [param_1e9efca18e7a2868_median_profit,param_1e9efca18e7a2868_genres]} : null"
+            }
+        ]
+        },
+        {
+        "name": "param_1e9efca18e7a2868_tuple_fields",
+        "value": [
+            {"field": "median_profit", "channel": "x", "type": "R"},
+            {"field": "genres", "channel": "y", "type": "E"}
+        ]
+        },
+        {
+        "name": "param_1e9efca18e7a2868_translate_anchor",
+        "value": {},
+        "on": [
+            {
+            "events": [{"source": "scope", "type": "pointerdown"}],
+            "update": "{x: x(unit), y: y(unit), extent_x: domain(\"x\"), extent_y: domain(\"y\")}"
+            }
+        ]
+        },
+        {
+        "name": "param_1e9efca18e7a2868_translate_delta",
+        "value": {},
+        "on": [
+            {
+            "events": [
+                {
+                "source": "window",
+                "type": "pointermove",
+                "consume": true,
+                "between": [
+                    {"source": "scope", "type": "pointerdown"},
+                    {"source": "window", "type": "pointerup"}
+                ]
+                }
+            ],
+            "update": "{x: param_1e9efca18e7a2868_translate_anchor.x - x(unit), y: param_1e9efca18e7a2868_translate_anchor.y - y(unit)}"
+            }
+        ]
+        },
+        {
+        "name": "param_1e9efca18e7a2868_zoom_anchor",
+        "on": [
+            {
+            "events": [{"source": "scope", "type": "wheel", "consume": true}],
+            "update": "{x: invert(\"x\", x(unit)), y: invert(\"y\", y(unit))}"
+            }
+        ]
+        },
+        {
+        "name": "param_1e9efca18e7a2868_zoom_delta",
+        "on": [
+            {
+            "events": [{"source": "scope", "type": "wheel", "consume": true}],
+            "force": true,
+            "update": "pow(1.001, event.deltaY * pow(16, event.deltaMode))"
+            }
+        ]
+        },
+        {
+        "name": "param_1e9efca18e7a2868_modify",
+        "on": [
+            {
+            "events": {"signal": "param_1e9efca18e7a2868_tuple"},
+            "update": "modify(\"param_1e9efca18e7a2868_store\", param_1e9efca18e7a2868_tuple, true)"
+            }
+        ]
+        }
+    ],
+    "marks": [
+        {
+        "name": "marks",
+        "type": "rect",
+        "clip": true,
+        "style": ["bar"],
+        "interactive": true,
+        "from": {"data": "data_0"},
+        "encode": {
+            "update": {
+            "opacity": {"value": 0.7},
+            "fill": {"scale": "color", "field": "genres"},
+            "tooltip": {
+                "signal": "{\"Median Profit (USD)\": format(datum[\"median_profit\"], \"$,.0f\"), \"Genre\": isValid(datum[\"genres\"]) ? isArray(datum[\"genres\"]) ? join(datum[\"genres\"], '\\n') : datum[\"genres\"] : \"\"+datum[\"genres\"], \"Total Movie Count\": format(datum[\"__count\"], \"\")}"
+            },
+            "ariaRoleDescription": {"value": "bar"},
+            "description": {
+                "signal": "\"Median Profit (USD): \" + (format(datum[\"median_profit\"], \"$,.0f\")) + \"; Genre: \" + (isValid(datum[\"genres\"]) ? isArray(datum[\"genres\"]) ? join(datum[\"genres\"], ' ') : datum[\"genres\"] : \"\"+datum[\"genres\"]) + \"; genres: \" + (isValid(datum[\"genres\"]) ? isArray(datum[\"genres\"]) ? join(datum[\"genres\"], ' ') : datum[\"genres\"] : \"\"+datum[\"genres\"]) + \"; Total Movie Count: \" + (format(datum[\"__count\"], \"\"))"
+            },
+            "x": {"scale": "x", "field": "median_profit"},
+            "x2": {"scale": "x", "value": 0},
+            "y": {"scale": "y", "field": "genres"},
+            "height": {"signal": "max(0.25, bandwidth('y'))"}
+            }
+        }
+        }
+    ],
+    "scales": [
+        {
+        "name": "x",
+        "type": "linear",
+        "domain": {"data": "data_0", "field": "median_profit"},
+        "domainRaw": {"signal": "param_1e9efca18e7a2868[\"median_profit\"]"},
+        "range": [0, {"signal": "width"}],
+        "nice": true,
+        "zero": true
+        },
+        {
+        "name": "y",
+        "type": "band",
+        "domain": {
+            "data": "data-f85e33c993b6f407e69cc5688370094f",
+            "field": "genres",
+            "sort": {"op": "min", "field": "median_profit", "order": "descending"}
+        },
+        "range": [0, {"signal": "height"}],
+        "paddingInner": 0.1,
+        "paddingOuter": 0.05
+        },
+        {
+        "name": "color",
+        "type": "ordinal",
+        "domain": {"data": "data_0", "field": "genres", "sort": true},
+        "range": "category"
+        }
+    ],
+    "axes": [
+        {
+        "scale": "x",
+        "orient": "bottom",
+        "gridScale": "y",
+        "grid": true,
+        "tickCount": {"signal": "ceil(width/40)"},
+        "domain": false,
+        "labels": false,
+        "aria": false,
+        "maxExtent": 0,
+        "minExtent": 0,
+        "ticks": false,
+        "zindex": 0
+        },
+        {
+        "scale": "x",
+        "orient": "bottom",
+        "grid": false,
+        "title": "Median Profit (USD)",
+        "format": "$,.0f",
+        "labelFlush": true,
+        "labelOverlap": true,
+        "tickCount": {"signal": "ceil(width/40)"},
+        "zindex": 0
+        },
+        {
+        "scale": "y",
+        "orient": "left",
+        "grid": false,
+        "title": "Genre",
+        "zindex": 0
+        }
+    ]
+}

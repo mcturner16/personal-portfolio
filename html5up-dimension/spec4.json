@@ -1,0 +1,383 @@
+{
+    "$schema": "https://vega.github.io/schema/vega/v6.json",
+    "background": "white",
+    "padding": 5,
+    "width": 600,
+    "height": 360,
+    "title": {"text": "Average Movie Profit by Genre", "frame": "group"},
+    "style": "cell",
+    "data": [
+        {"name": "param_1e9efca18e7a2868_store"},
+        {
+        "name": "data-3d8fbe565753a47229ed0dbdb482a86d",
+        "values": [
+            {
+            "genres": "Action",
+            "average_revenue": 171547600.26772925,
+            "average_budget": 67138789.50119366,
+            "movie_count": 14242,
+            "average_profit": 104408810.7665356
+            },
+            {
+            "genres": "Adventure",
+            "average_revenue": 205719069.83439696,
+            "average_budget": 77892725.54223906,
+            "movie_count": 9245,
+            "average_profit": 127826344.2921579
+            },
+            {
+            "genres": "Animation",
+            "average_revenue": 160111145.67255434,
+            "average_budget": 49779394.50203805,
+            "movie_count": 1472,
+            "average_profit": 110331751.1705163
+            },
+            {
+            "genres": "Comedy",
+            "average_revenue": 83529880.47970915,
+            "average_budget": 34271115.98290262,
+            "movie_count": 10177,
+            "average_profit": 49258764.496806525
+            },
+            {
+            "genres": "Crime",
+            "average_revenue": 78210217.5242464,
+            "average_budget": 35510444.92739187,
+            "movie_count": 7630,
+            "average_profit": 42699772.59685452
+            },
+            {
+            "genres": "Documentary",
+            "average_revenue": 21300827.4981203,
+            "average_budget": 12680502.29699248,
+            "movie_count": 532,
+            "average_profit": 8620325.20112782
+            },
+            {
+            "genres": "Drama",
+            "average_revenue": 70394784.60741946,
+            "average_budget": 28671384.10741947,
+            "movie_count": 22724,
+            "average_profit": 41723400.49999999
+            },
+            {
+            "genres": "Family",
+            "average_revenue": 183218295.2094939,
+            "average_budget": 62170521.54256571,
+            "movie_count": 2549,
+            "average_profit": 121047773.6669282
+            },
+            {
+            "genres": "Fantasy",
+            "average_revenue": 194786869.55786133,
+            "average_budget": 70103440.19238281,
+            "movie_count": 4096,
+            "average_profit": 124683429.36547852
+            },
+            {
+            "genres": "Foreign",
+            "average_revenue": 1610785.5294117648,
+            "average_budget": 3937818.2279411764,
+            "movie_count": 136,
+            "average_profit": -2327032.6985294116
+            },
+            {
+            "genres": "History",
+            "average_revenue": 77593416.33422963,
+            "average_budget": 39335516.444474325,
+            "movie_count": 3719,
+            "average_profit": 38257899.88975531
+            },
+            {
+            "genres": "Horror",
+            "average_revenue": 64356504.5252947,
+            "average_budget": 26223127.024312377,
+            "movie_count": 4072,
+            "average_profit": 38133377.50098232
+            },
+            {
+            "genres": "Music",
+            "average_revenue": 60962885.066769,
+            "average_budget": 21579066.903300077,
+            "movie_count": 1303,
+            "average_profit": 39383818.16346892
+            },
+            {
+            "genres": "Mystery",
+            "average_revenue": 102335105.64389285,
+            "average_budget": 40527821.73777341,
+            "movie_count": 4069,
+            "average_profit": 61807283.90611944
+            },
+            {
+            "genres": "Romance",
+            "average_revenue": 74761346.13736737,
+            "average_budget": 26425366.977344424,
+            "movie_count": 6974,
+            "average_profit": 48335979.160022944
+            },
+            {
+            "genres": "Science Fiction",
+            "average_revenue": 166500500.94680664,
+            "average_budget": 63550608.53193351,
+            "movie_count": 5715,
+            "average_profit": 102949892.41487312
+            },
+            {
+            "genres": "TV Movie",
+            "average_revenue": 42000000,
+            "average_budget": 5000000,
+            "movie_count": 9,
+            "average_profit": 37000000
+            },
+            {
+            "genres": "Thriller",
+            "average_revenue": 116047966.00428654,
+            "average_budget": 45767327.48262648,
+            "movie_count": 15397,
+            "average_profit": 70280638.52166006
+            },
+            {
+            "genres": "War",
+            "average_revenue": 88626105.41104469,
+            "average_budget": 40890478.86194136,
+            "movie_count": 3513,
+            "average_profit": 47735626.54910333
+            },
+            {
+            "genres": "Western",
+            "average_revenue": 110048638.52280702,
+            "average_budget": 44016287.98070175,
+            "movie_count": 570,
+            "average_profit": 66032350.542105265
+            }
+        ]
+        },
+        {
+        "name": "data_0",
+        "source": "data-3d8fbe565753a47229ed0dbdb482a86d",
+        "transform": [
+            {
+            "type": "aggregate",
+            "groupby": ["average_profit", "genres"],
+            "ops": ["count"],
+            "fields": [null],
+            "as": ["__count"]
+            },
+            {
+            "type": "filter",
+            "expr": "isValid(datum[\"average_profit\"]) && isFinite(+datum[\"average_profit\"])"
+            }
+        ]
+        }
+    ],
+    "signals": [
+        {
+        "name": "unit",
+        "value": {},
+        "on": [
+            {"events": "pointermove", "update": "isTuple(group()) ? group() : unit"}
+        ]
+        },
+        {
+        "name": "param_1e9efca18e7a2868",
+        "update": "vlSelectionResolve(\"param_1e9efca18e7a2868_store\", \"union\")"
+        },
+        {
+        "name": "param_1e9efca18e7a2868_average_profit",
+        "on": [
+            {"events": [{"source": "view", "type": "dblclick"}], "update": "null"},
+            {
+            "events": {"signal": "param_1e9efca18e7a2868_translate_delta"},
+            "update": "panLinear(param_1e9efca18e7a2868_translate_anchor.extent_x, -param_1e9efca18e7a2868_translate_delta.x / width)"
+            },
+            {
+            "events": {"signal": "param_1e9efca18e7a2868_zoom_delta"},
+            "update": "zoomLinear(domain(\"x\"), param_1e9efca18e7a2868_zoom_anchor.x, param_1e9efca18e7a2868_zoom_delta)"
+            }
+        ]
+        },
+        {
+        "name": "param_1e9efca18e7a2868_genres",
+        "on": [
+            {"events": [{"source": "view", "type": "dblclick"}], "update": "null"},
+            {
+            "events": {"signal": "param_1e9efca18e7a2868_translate_delta"},
+            "update": "panLinear(param_1e9efca18e7a2868_translate_anchor.extent_y, param_1e9efca18e7a2868_translate_delta.y / height)"
+            },
+            {
+            "events": {"signal": "param_1e9efca18e7a2868_zoom_delta"},
+            "update": "zoomLinear(domain(\"y\"), param_1e9efca18e7a2868_zoom_anchor.y, param_1e9efca18e7a2868_zoom_delta)"
+            }
+        ]
+        },
+        {
+        "name": "param_1e9efca18e7a2868_tuple",
+        "on": [
+            {
+            "events": [
+                {
+                "signal": "param_1e9efca18e7a2868_average_profit || param_1e9efca18e7a2868_genres"
+                }
+            ],
+            "update": "param_1e9efca18e7a2868_average_profit && param_1e9efca18e7a2868_genres ? {unit: \"\", fields: param_1e9efca18e7a2868_tuple_fields, values: [param_1e9efca18e7a2868_average_profit,param_1e9efca18e7a2868_genres]} : null"
+            }
+        ]
+        },
+        {
+        "name": "param_1e9efca18e7a2868_tuple_fields",
+        "value": [
+            {"field": "average_profit", "channel": "x", "type": "R"},
+            {"field": "genres", "channel": "y", "type": "E"}
+        ]
+        },
+        {
+        "name": "param_1e9efca18e7a2868_translate_anchor",
+        "value": {},
+        "on": [
+            {
+            "events": [{"source": "scope", "type": "pointerdown"}],
+            "update": "{x: x(unit), y: y(unit), extent_x: domain(\"x\"), extent_y: domain(\"y\")}"
+            }
+        ]
+        },
+        {
+        "name": "param_1e9efca18e7a2868_translate_delta",
+        "value": {},
+        "on": [
+            {
+            "events": [
+                {
+                "source": "window",
+                "type": "pointermove",
+                "consume": true,
+                "between": [
+                    {"source": "scope", "type": "pointerdown"},
+                    {"source": "window", "type": "pointerup"}
+                ]
+                }
+            ],
+            "update": "{x: param_1e9efca18e7a2868_translate_anchor.x - x(unit), y: param_1e9efca18e7a2868_translate_anchor.y - y(unit)}"
+            }
+        ]
+        },
+        {
+        "name": "param_1e9efca18e7a2868_zoom_anchor",
+        "on": [
+            {
+            "events": [{"source": "scope", "type": "wheel", "consume": true}],
+            "update": "{x: invert(\"x\", x(unit)), y: invert(\"y\", y(unit))}"
+            }
+        ]
+        },
+        {
+        "name": "param_1e9efca18e7a2868_zoom_delta",
+        "on": [
+            {
+            "events": [{"source": "scope", "type": "wheel", "consume": true}],
+            "force": true,
+            "update": "pow(1.001, event.deltaY * pow(16, event.deltaMode))"
+            }
+        ]
+        },
+        {
+        "name": "param_1e9efca18e7a2868_modify",
+        "on": [
+            {
+            "events": {"signal": "param_1e9efca18e7a2868_tuple"},
+            "update": "modify(\"param_1e9efca18e7a2868_store\", param_1e9efca18e7a2868_tuple, true)"
+            }
+        ]
+        }
+    ],
+    "marks": [
+        {
+        "name": "marks",
+        "type": "rect",
+        "clip": true,
+        "style": ["bar"],
+        "interactive": true,
+        "from": {"data": "data_0"},
+        "encode": {
+            "update": {
+            "opacity": {"value": 0.7},
+            "fill": {"scale": "color", "field": "genres"},
+            "tooltip": {
+                "signal": "{\"Average Profit (USD)\": format(datum[\"average_profit\"], \"$,.0f\"), \"Genre\": isValid(datum[\"genres\"]) ? isArray(datum[\"genres\"]) ? join(datum[\"genres\"], '\\n') : datum[\"genres\"] : \"\"+datum[\"genres\"], \"Total Movie Count\": format(datum[\"__count\"], \"\")}"
+            },
+            "ariaRoleDescription": {"value": "bar"},
+            "description": {
+                "signal": "\"Average Profit (USD): \" + (format(datum[\"average_profit\"], \"$,.0f\")) + \"; Genre: \" + (isValid(datum[\"genres\"]) ? isArray(datum[\"genres\"]) ? join(datum[\"genres\"], ' ') : datum[\"genres\"] : \"\"+datum[\"genres\"]) + \"; genres: \" + (isValid(datum[\"genres\"]) ? isArray(datum[\"genres\"]) ? join(datum[\"genres\"], ' ') : datum[\"genres\"] : \"\"+datum[\"genres\"]) + \"; Total Movie Count: \" + (format(datum[\"__count\"], \"\"))"
+            },
+            "x": {"scale": "x", "field": "average_profit"},
+            "x2": {"scale": "x", "value": 0},
+            "y": {"scale": "y", "field": "genres"},
+            "height": {"signal": "max(0.25, bandwidth('y'))"}
+            }
+        }
+        }
+    ],
+    "scales": [
+        {
+        "name": "x",
+        "type": "linear",
+        "domain": {"data": "data_0", "field": "average_profit"},
+        "domainRaw": {"signal": "param_1e9efca18e7a2868[\"average_profit\"]"},
+        "range": [0, {"signal": "width"}],
+        "nice": true,
+        "zero": true
+        },
+        {
+        "name": "y",
+        "type": "band",
+        "domain": {
+            "data": "data-3d8fbe565753a47229ed0dbdb482a86d",
+            "field": "genres",
+            "sort": {"op": "min", "field": "average_profit", "order": "descending"}
+        },
+        "range": [0, {"signal": "height"}],
+        "paddingInner": 0.1,
+        "paddingOuter": 0.05
+        },
+        {
+        "name": "color",
+        "type": "ordinal",
+        "domain": {"data": "data_0", "field": "genres", "sort": true},
+        "range": "category"
+        }
+    ],
+    "axes": [
+        {
+        "scale": "x",
+        "orient": "bottom",
+        "gridScale": "y",
+        "grid": true,
+        "tickCount": {"signal": "ceil(width/40)"},
+        "domain": false,
+        "labels": false,
+        "aria": false,
+        "maxExtent": 0,
+        "minExtent": 0,
+        "ticks": false,
+        "zindex": 0
+        },
+        {
+        "scale": "x",
+        "orient": "bottom",
+        "grid": false,
+        "title": "Average Profit (USD)",
+        "format": "$,.0f",
+        "labelFlush": true,
+        "labelOverlap": true,
+        "tickCount": {"signal": "ceil(width/40)"},
+        "zindex": 0
+        },
+        {
+        "scale": "y",
+        "orient": "left",
+        "grid": false,
+        "title": "Genre",
+        "zindex": 0
+        }
+    ]
+}
