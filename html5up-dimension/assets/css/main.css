@@ -1140,9 +1140,12 @@ input, select, textarea {
 			-ms-transition-delay: 0.75s;
 			transition-delay: 0.75s;
 			background-image: linear-gradient(to top, rgba(19, 21, 25, 0.5), rgba(19, 21, 25, 0.5)), url("../../images/overlay.png");
-			background-size: auto, 256px 256px;
-			background-position: center, center;
-			background-repeat: no-repeat, repeat;
+			background-size: auto,
+ 256px 256px;
+			background-position: center,
+ center;
+			background-repeat: no-repeat,
+ repeat;
 			z-index: 2;
 		}
 
@@ -1656,3 +1659,29 @@ input, select, textarea {
 		body.is-preload #footer {
 			opacity: 0;
 		}
+		/* Stack multiple nav rows vertically */
+#header nav {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.75rem;
+}
+
+#header nav ul.nav-row {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin: 0;
+}
+
+/* Fix borders on mobile when stacked */
+@media screen and (max-width: 480px) {
+	#header nav ul.nav-row {
+		flex-direction: column;
+		width: 100%;
+	}
+}
+/* Remove the vertical divider line cutting through stacked nav buttons */
+#header nav.use-middle:after {
+	display: none !important;
+}
